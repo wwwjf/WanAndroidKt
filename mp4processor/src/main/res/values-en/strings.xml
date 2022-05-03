@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vc_input_null">Input file is empty</string>
+    <string name="vc_output_null">Output file is empty</string>
+    <string name="vc_input_not_exist">Input file does not exist</string>
+    <string name="vc_output_not_file">Output file does not exist</string>
+    <string name="vc_startTime_less_0">Crop Start time is less than 0</string>
+    <string name="vc_endTime_less_0">Crop end time is less than 0</string>
+    <string name="vc_startTime_more_endTime">Crop start time is greater than end time</string>
+    <string name="vc_init_failed">initialization failed</string>
+    <string name="vc_cancel_video_cut">Cancel crop video</string>
+    <string name="vc_exception_video_cut">This video cropping is not supported</string>
+    <string name="director">director</string>
+    <string name="actor">actor</string>
+</resources>

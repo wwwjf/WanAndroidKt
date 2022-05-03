@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vc_input_null">输入文件为空</string>
+    <string name="vc_output_null">输出文件为空</string>
+    <string name="vc_input_not_exist">输入文件不存在</string>
+    <string name="vc_output_not_file">输出文件不存在</string>
+    <string name="vc_startTime_less_0">裁剪起始时间小于0</string>
+    <string name="vc_endTime_less_0">裁剪结束时间小于0</string>
+    <string name="vc_startTime_more_endTime">裁剪起始时间大于结束时间</string>
+    <string name="vc_init_failed">初始化失败</string>
+    <string name="vc_cancel_video_cut">取消裁剪视频</string>
+    <string name="vc_exception_video_cut">不支持此视频裁剪</string>
+    <string name="director">导演</string>
+    <string name="actor">演员</string>
+</resources>

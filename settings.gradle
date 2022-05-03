@@ -1,0 +1,13 @@
+rootProject.name = "WanAndroidKt"
+include ':app'
+include ':mvp'
+include ':coroutinelib'
+include ':webView'
+include ':common'
+include ':base'
+include ':audiodemo'
+include ':jetpackdemo'
+include ':videodemo'
+include ':glidedemo'
+include ':hookdemo'
+include ':mp4processor'
