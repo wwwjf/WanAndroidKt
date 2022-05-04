@@ -25,6 +25,5 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
- ext{
-     googleAutoServiceDependency = 'com.google.auto.service:auto-service:1.0.1'
- }
+
+apply from:"config.gradle"

@@ -1,7 +1,12 @@
 plugins {
-    id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+}
+
+if (isLibrary.toBoolean()){
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin:  'com.android.application'
 }
 
 android {
@@ -10,13 +15,16 @@ android {
 
 
     defaultConfig {
-        applicationId "com.wwwjf.videodemo"
+        if (!isLibrary.toBoolean()){
+            applicationId "com.wwwjf.videodemo"
+        }
 
         minSdkVersion Integer.valueOf(min_sdk_version)
         targetSdkVersion Integer.valueOf(target_sdk_version)
         versionCode Integer.valueOf(version_code)
         versionName "$version_name"
 
+        resourcePrefix "video_"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,6 +44,16 @@ android {
     buildFeatures {
         dataBinding = true
         viewBinding = true
+    }
+
+    sourceSets{
+        main{
+            if (isLibrary.toBoolean()){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
     }
 }
 

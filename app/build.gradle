@@ -51,5 +51,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$ktx_core_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$ktx_android_version"
     implementation project(":webView")
-//    implementation project(":audiodemo")
+    if (isLibrary.toBoolean()){
+        implementation project(":audiodemo")
+        implementation project(":videodemo")
+    }
 }
