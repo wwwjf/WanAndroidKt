@@ -26,4 +26,8 @@ class VideoDemoActivity : AppCompatActivity() {
     fun mediaCodec(view: View) {
         startActivity(Intent(this,MediaCodecActivity::class.java))
     }
+
+    fun camera(view: View) {
+        startActivity(Intent(this,CameraActivity::class.java))
+    }
 }

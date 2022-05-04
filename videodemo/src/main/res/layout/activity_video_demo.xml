@@ -33,5 +33,11 @@
         android:onClick="mediaCodec"
         android:text="视频编解码"
         android:textAllCaps="false" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="camera"
+        android:text="摄像头"
+        android:textAllCaps="false" />
 
 </LinearLayout>
