@@ -43,13 +43,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openGL1"
-        android:text="openGL1"
+        android:text="openGL三角形"
         android:textAllCaps="false" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="openGL2"
-        android:text="openGL2"
+        android:text="openGL图片"
+        android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openGL3"
+        android:text="openGL视频"
         android:textAllCaps="false" />
 
 </LinearLayout>

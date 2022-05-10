@@ -10,7 +10,7 @@ class TriangleDrawer : IDrawer {
     //顶点坐标
     private val mVertexCoors = floatArrayOf(
         -1f, -1f,
-        1f, 1f,
+        1f, -1f,
         0f, 1f
     )
 
@@ -115,21 +115,21 @@ class TriangleDrawer : IDrawer {
         GLES20.glDeleteProgram(mProgram)
     }
 
-    private fun getVertexShader(): String {
+    override fun getVertexShader(): String {
         return "attribute vec4 aPosition;" +
                 "void main() {" +
                 "  gl_Position = aPosition;" +
                 "}"
     }
 
-    private fun getFragmentShader(): String {
+    override fun getFragmentShader(): String {
         return "precision mediump float;" +
                 "void main() {" +
                 "  gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);" +
                 "}"
     }
 
-    private fun loadShader(type: Int, shaderCode: String): Int {
+    override fun loadShader(type: Int, shaderCode: String): Int {
         //根据type创建顶点着色器或者片元着色器
         val shader = GLES20.glCreateShader(type)
         //将资源加入到着色器中，并编译

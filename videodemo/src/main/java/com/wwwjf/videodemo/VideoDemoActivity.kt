@@ -64,4 +64,9 @@ class VideoDemoActivity : AppCompatActivity() {
         intent.putExtra("type",1)
         startActivity(intent)
     }
+    fun openGL3(view: View) {
+        val intent = Intent(this,OpenGlActivity::class.java)
+        intent.putExtra("type",2)
+        startActivity(intent)
+    }
 }

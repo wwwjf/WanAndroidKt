@@ -90,8 +90,17 @@ class BitmapDrawer(private val mBitmap: Bitmap) : IDrawer {
 
     private fun createGLPrg() {
         if (mProgram == -1) {
-            //省略与绘制三角形一致的部分
-            //......
+            val vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, getVertexShader())
+            val fragmentShader = loadShader(GLES20.GL_FRAGMENT_SHADER, getFragmentShader())
+
+            //创建OpenGL ES程序，注意：需要在OpenGL渲染线程中创建，否则无法渲染
+            mProgram = GLES20.glCreateProgram()
+            //将顶点着色器加入到程序
+            GLES20.glAttachShader(mProgram, vertexShader)
+            //将片元着色器加入到程序中
+            GLES20.glAttachShader(mProgram, fragmentShader)
+            //连接到着色器程序
+            GLES20.glLinkProgram(mProgram)
 
             mVertexPosHandler = GLES20.glGetAttribLocation(mProgram, "aPosition")
             mTexturePosHandler = GLES20.glGetAttribLocation(mProgram, "aCoordinate")
@@ -136,10 +145,10 @@ class BitmapDrawer(private val mBitmap: Bitmap) : IDrawer {
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4)
     }
 
-    private fun getVertexShader(): String {
+    override fun getVertexShader(): String {
 
                 //顶点坐标
-        return "attribute vec2 aPosition;" +
+        return "attribute vec4 aPosition;" +
                 //纹理坐标
                 "attribute vec2 aCoordinate;" +
                 //用于传递纹理坐标给片元着色器，命名和片元着色器中的一致
@@ -151,7 +160,7 @@ class BitmapDrawer(private val mBitmap: Bitmap) : IDrawer {
     }
 
 
-    private fun getFragmentShader(): String {
+    override fun getFragmentShader(): String {
 
                  //配置float精度，使用了float数据一定要配置：lowp(低)/mediump(中)/highp(高)
         return "precision mediump float;" +
@@ -166,7 +175,22 @@ class BitmapDrawer(private val mBitmap: Bitmap) : IDrawer {
                 "}"
     }
 
+    override fun loadShader(type: Int, shaderCode: String): Int {
+        //根据type创建顶点着色器或者片元着色器
+        val shader = GLES20.glCreateShader(type)
+        //将资源加入到着色器中，并编译
+        GLES20.glShaderSource(shader, shaderCode)
+        GLES20.glCompileShader(shader)
+
+        return shader
+    }
+
     override fun release() {
+        GLES20.glDisableVertexAttribArray(mVertexPosHandler)
+        GLES20.glDisableVertexAttribArray(mTexturePosHandler)
+        GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,0)
+        GLES20.glDeleteTextures(1, intArrayOf(mTextureId),0)
+        GLES20.glDeleteProgram(mProgram)
 
     }
 }
