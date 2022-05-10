@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:export="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_rectangle_solid_black_c4dp"
+    android:gravity="center_vertical"
+    android:padding="15dp">
+
+    <com.wwwjf.base.widget.ProgressWheel
+        android:id="@+id/spinnerImageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        export:matProg_barColor="@color/white"
+        export:matProg_progressIndeterminate="true" />
+
+</LinearLayout>

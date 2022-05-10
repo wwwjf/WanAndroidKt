@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp_270"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_rectangle_solid_ffffff_c8dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_custom_alert_dialog_ensure_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="9dp"
+        android:textColor="#17364E"
+        android:textSize="@dimen/sp_16"
+        tools:text="title" />
+
+    <!--中间的内容部分-->
+    <TextView
+        android:id="@+id/ll_custom_alert_dialog_ensure_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:textColor="#17364E"
+        android:textSize="@dimen/sp_14"
+        tools:text="content" />
+
+    <View style="@style/line_horizontal" />
+
+    <TextView
+        android:id="@+id/tv_custom_alert_dialog_ensure_ensure"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/selector_pressed_663b55e6_unpressed_3b55e6_bottom_c8dp"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16" />
+</LinearLayout>

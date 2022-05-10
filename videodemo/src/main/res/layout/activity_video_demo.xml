@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
     tools:context=".VideoDemoActivity">
 
@@ -37,7 +37,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="camera"
-        android:text="摄像头"
+        android:text="摄像头/相册"
+        android:textAllCaps="false" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openGL1"
+        android:text="openGL1"
+        android:textAllCaps="false" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openGL2"
+        android:text="openGL2"
         android:textAllCaps="false" />
 
 </LinearLayout>

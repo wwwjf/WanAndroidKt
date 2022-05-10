@@ -1,30 +1,18 @@
 plugins {
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
-
-if (isLibrary.toBoolean()){
-    apply plugin: 'com.android.library'
-} else {
-    apply plugin:  'com.android.application'
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
 }
 
 android {
     compileSdkVersion Integer.valueOf(compile_sdk_version)
-    buildToolsVersion "$build_tools_version"
-
 
     defaultConfig {
-        if (!isLibrary.toBoolean()){
-            applicationId "com.wwwjf.videodemo"
-        }
-
+        applicationId "com.wwwjf.plugindemo"
         minSdkVersion Integer.valueOf(min_sdk_version)
         targetSdkVersion Integer.valueOf(target_sdk_version)
         versionCode Integer.valueOf(version_code)
         versionName "$version_name"
 
-//        resourcePrefix "video_"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,24 +29,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        viewBinding true
-    }
-
-    sourceSets{
-        main{
-            if (isLibrary.toBoolean()){
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/module/AndroidManifest.xml'
-            }
-        }
-    }
 }
 
 dependencies {
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "com.google.android.material:material:$material_version"
@@ -68,6 +41,4 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
-    implementation project(":common")
-
 }

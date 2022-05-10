@@ -102,8 +102,10 @@ public class MediaCodecActivity extends AppCompatActivity {
         mMediaCodec.start();
         mMediaCodec.setVideoScalingMode(MediaCodec.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING);
         fixHW();
-        mDecodeThread = new Thread(new DecodeThread(mMediaCodec,mDataInputStream));
-        mDecodeThread.start();
+        if (mDataInputStream != null) {
+            mDecodeThread = new Thread(new DecodeThread(mMediaCodec, mDataInputStream));
+            mDecodeThread.start();
+        }
     }
 
     //获取视频宽高以缩放渲染分辨率,注意此方法必须在releaseOutputBuffer之前执行

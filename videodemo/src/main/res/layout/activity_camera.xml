@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".CameraActivity">
 
     <ImageView
         android:id="@+id/iv_activity_camera"
-        android:layout_width="200dp"
-        android:layout_height="400dp" />
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:layout_height="200dp" />
 
     <Button
         android:id="@+id/btn_activity_camera"
@@ -19,4 +19,9 @@
         android:layout_height="wrap_content"
         android:onClick="takePhoto"
         android:text="拍照" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openAlbum"
+        android:text="打开相册" />
 </LinearLayout>
