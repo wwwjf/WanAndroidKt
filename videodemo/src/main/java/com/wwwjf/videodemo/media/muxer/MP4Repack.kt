@@ -1,9 +1,9 @@
-package com.cxp.learningvideo.media.muxer
+package com.wwwjf.videodemo.media.muxer
 
 import android.media.MediaCodec
 import android.util.Log
-import com.cxp.learningvideo.media.extractor.AudioExtractor
-import com.cxp.learningvideo.media.extractor.VideoExtractor
+import com.wwwjf.videodemo.media.extractor.AudioExtractor
+import com.wwwjf.videodemo.media.extractor.VideoExtractor
 import java.nio.ByteBuffer
 
 

@@ -1,5 +1,8 @@
 package com.cxp.learningvideo.media.encoder
 
+import com.wwwjf.videodemo.media.encoder.BaseEncoder
+import com.wwwjf.videodemo.media.encoder.IEncodeStateListener
+
 
 /**
  * 默认编码回调接口

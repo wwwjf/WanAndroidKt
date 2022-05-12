@@ -1,9 +1,9 @@
-package com.cxp.learningvideo.media.decoder
+package com.wwwjf.videodemo.media.decoder
 
 import android.media.*
-import com.cxp.learningvideo.media.BaseDecoder
-import com.cxp.learningvideo.media.IExtractor
-import com.cxp.learningvideo.media.extractor.AudioExtractor
+import com.wwwjf.videodemo.media.BaseDecoder
+import com.wwwjf.videodemo.media.IExtractor
+import com.wwwjf.videodemo.media.extractor.AudioExtractor
 import java.nio.ByteBuffer
 
 

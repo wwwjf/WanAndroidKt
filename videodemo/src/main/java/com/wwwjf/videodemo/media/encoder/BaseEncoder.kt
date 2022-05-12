@@ -1,10 +1,10 @@
-package com.cxp.learningvideo.media.encoder
+package com.wwwjf.videodemo.media.encoder
 
 import android.media.MediaCodec
 import android.media.MediaFormat
 import android.util.Log
-import com.cxp.learningvideo.media.Frame
-import com.cxp.learningvideo.media.muxer.MMuxer
+import com.wwwjf.videodemo.media.Frame
+import com.wwwjf.videodemo.media.muxer.MMuxer
 import java.nio.ByteBuffer
 
 

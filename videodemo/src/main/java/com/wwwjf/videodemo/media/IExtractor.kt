@@ -1,4 +1,4 @@
-package com.cxp.learningvideo.media
+package com.wwwjf.videodemo.media
 
 import android.media.MediaFormat
 import java.nio.ByteBuffer

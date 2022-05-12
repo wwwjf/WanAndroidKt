@@ -53,22 +53,14 @@ class VideoDrawer : IDrawer {
     private var mWorldHeight: Int = -1
     private var mVideoWidth: Int = -1
     private var mVideoHeight: Int = -1
+    private var mWidthRatio = 1f
+    private var mHeightRatio = 1f
 
     //坐标变换矩阵
     private var mMatrix: FloatArray? = null
 
     //矩阵变换接收者
     private var mVertexMatrixHandler: Int = -1
-
-    override fun setVideoSize(videoW: Int, videoH: Int) {
-        mVideoWidth = videoW
-        mVideoHeight = videoH
-    }
-
-    override fun setWorldSize(worldW: Int, worldH: Int) {
-        mWorldWidth = worldW
-        mWorldHeight = worldH
-    }
 
     init {
         //【步骤1: 初始化顶点坐标】
@@ -90,27 +82,6 @@ class VideoDrawer : IDrawer {
         mTextureBuffer.position(0)
     }
 
-    override fun setTextureID(id: Int) {
-        mTextureId = id
-        mSurfaceTexture = SurfaceTexture(id)
-        mSftCb?.invoke(mSurfaceTexture!!)
-    }
-
-    override fun draw() {
-        if (mTextureId != -1) {
-            //【新增1: 初始化矩阵方法】
-            initDefMatrix()
-            //【步骤2: 创建、编译并启动OpenGL着色器】
-            createGLPrg()
-            //【步骤3: 激活并绑定纹理单元】
-            activateTexture()
-            //【步骤4: 绑定图片到纹理单元】
-            updateTexture()
-            //【步骤5: 开始渲染绘制】
-            doDraw()
-        }
-    }
-
     private fun initDefMatrix() {
 
         if (mMatrix != null) return
@@ -122,38 +93,38 @@ class VideoDrawer : IDrawer {
             val worldRatio = mWorldWidth / mWorldHeight.toFloat()
             if (mWorldWidth > mWorldHeight) {
                 if (originRatio > worldRatio) {
-                    val actualRatio = originRatio / worldRatio
+                    mHeightRatio = originRatio / worldRatio
                     Matrix.orthoM(
                         prjMatrix, 0,
-                        -1f, 1f,
-                        -actualRatio, actualRatio,
-                        -1f, 3f
+                        -mWidthRatio, mWidthRatio,
+                        -mHeightRatio, mHeightRatio,
+                        3f, 5f
                     )
                 } else {// 原始比例小于窗口比例，缩放高度度会导致高度超出，因此，高度以窗口为准，缩放宽度
-                    val actualRatio = worldRatio / originRatio
+                    mWidthRatio = worldRatio / originRatio
                     Matrix.orthoM(
                         prjMatrix, 0,
-                        -actualRatio, actualRatio,
-                        -1f, 1f,
-                        -1f, 3f
+                        -mWidthRatio, mWidthRatio,
+                        -mHeightRatio, mHeightRatio,
+                        3f, 5f
                     )
                 }
             } else {
                 if (originRatio > worldRatio) {
-                    val actualRatio = originRatio / worldRatio
+                    mHeightRatio = originRatio / worldRatio
                     Matrix.orthoM(
                         prjMatrix, 0,
-                        -1f, 1f,
-                        -actualRatio, actualRatio,
-                        -1f, 3f
+                        -mWidthRatio, mWidthRatio,
+                        -mHeightRatio, mHeightRatio,
+                        3f, 5f
                     )
                 } else {// 原始比例小于窗口比例，缩放高度会导致高度超出，因此，高度以窗口为准，缩放宽度
-                    val actualRatio = worldRatio / originRatio
+                    mWidthRatio = worldRatio / originRatio
                     Matrix.orthoM(
                         prjMatrix, 0,
-                        -actualRatio, actualRatio,
-                        -1f, 1f,
-                        -1f, 3f
+                        -mWidthRatio, mWidthRatio,
+                        -mHeightRatio, mHeightRatio,
+                        3f, 5f
                     )
                 }
             }
@@ -171,6 +142,44 @@ class VideoDrawer : IDrawer {
         }
     }
 
+    override fun setVideoSize(videoW: Int, videoH: Int) {
+        mVideoWidth = videoW
+        mVideoHeight = videoH
+    }
+
+    override fun setWorldSize(worldW: Int, worldH: Int) {
+        mWorldWidth = worldW
+        mWorldHeight = worldH
+    }
+    override fun setTextureID(id: Int) {
+        mTextureId = id
+        mSurfaceTexture = SurfaceTexture(id)
+        mSftCb?.invoke(mSurfaceTexture!!)
+    }
+
+    override fun setAlpha(alpha: Float) {
+        mAlpha = alpha
+    }
+
+    override fun getSurfaceTexture(cb: (st: SurfaceTexture) -> Unit) {
+        mSftCb = cb
+    }
+
+
+    override fun draw() {
+        if (mTextureId != -1) {
+            //【新增1: 初始化矩阵方法】
+            initDefMatrix()
+            //【步骤2: 创建、编译并启动OpenGL着色器】
+            createGLPrg()
+            //【步骤3: 激活并绑定纹理单元】
+            activateTexture()
+            //【步骤4: 绑定图片到纹理单元】
+            updateTexture()
+            //【步骤5: 开始渲染绘制】
+            doDraw()
+        }
+    }
     private fun createGLPrg() {
         if (mProgram == -1) {
             val vertexShader = loadShader(GLES20.GL_VERTEX_SHADER, getVertexShader())
@@ -216,6 +225,7 @@ class VideoDrawer : IDrawer {
         mSurfaceTexture?.updateTexImage()
     }
 
+
     private fun doDraw() {
         //启用顶点的句柄
         GLES20.glEnableVertexAttribArray(mVertexPosHandler)
@@ -232,9 +242,6 @@ class VideoDrawer : IDrawer {
         GLES20.glDrawArrays(GLES20.GL_TRIANGLE_STRIP, 0, 4)
     }
 
-    override fun setAlpha(alpha: Float) {
-        mAlpha = alpha
-    }
 
     override fun release() {
         GLES20.glDisableVertexAttribArray(mVertexPosHandler)
@@ -246,14 +253,18 @@ class VideoDrawer : IDrawer {
 
     override fun getVertexShader(): String {
         return "attribute vec4 aPosition;" +
+                "precision mediump float;" +
                 //【新增4: 矩阵变量】
                 "uniform mat4 uMatrix;" +
                 "attribute vec2 aCoordinate;" +
                 "varying vec2 vCoordinate;" +
+                "attribute float alpha;" +
+                "varying float inAlpha;" +
                 "void main() {" +
-                //【新增5: 坐标变换】
-                "    gl_Position = aPosition*uMatrix;" +
+                //【新增5: 坐标变换】//uMatrix 和aPosition位置调换会有影响
+                "    gl_Position = uMatrix*aPosition;" +
                 "    vCoordinate = aCoordinate;" +
+                "    inAlpha = alpha;" +
                 "}"
     }
 
@@ -262,9 +273,11 @@ class VideoDrawer : IDrawer {
         return "#extension GL_OES_EGL_image_external : require\n" +
                 "precision mediump float;" +
                 "varying vec2 vCoordinate;" +
+                "varying float inAlpha;" +
                 "uniform samplerExternalOES uTexture;" +
                 "void main() {" +
-                "  gl_FragColor=texture2D(uTexture, vCoordinate);" +
+                "  vec4 color = texture2D(uTexture, vCoordinate);" +
+                "  gl_FragColor = vec4(color.r, color.g, color.b, inAlpha);" +
                 "}"
     }
 
@@ -278,7 +291,13 @@ class VideoDrawer : IDrawer {
         return shader
     }
 
-    override fun getSurfaceTexture(cb: (st: SurfaceTexture) -> Unit) {
-        mSftCb = cb
+    // 平移
+    fun translate(dx: Float, dy: Float) {
+        Matrix.translateM(mMatrix, 0, dx*mWidthRatio*2, -dy*mHeightRatio*2, 0f)
+    }
+    fun scale(sx: Float, sy: Float) {
+        Matrix.scaleM(mMatrix, 0, sx, sy, 1f)
+        mWidthRatio /= sx
+        mHeightRatio /= sy
     }
 }

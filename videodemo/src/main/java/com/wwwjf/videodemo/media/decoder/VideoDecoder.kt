@@ -1,4 +1,4 @@
-package com.cxp.learningvideo.media.decoder
+package com.wwwjf.videodemo.media.decoder
 
 import android.media.MediaCodec
 import android.media.MediaFormat
@@ -6,9 +6,9 @@ import android.util.Log
 import android.view.Surface
 import android.view.SurfaceHolder
 import android.view.SurfaceView
-import com.cxp.learningvideo.media.BaseDecoder
-import com.cxp.learningvideo.media.IExtractor
-import com.cxp.learningvideo.media.extractor.VideoExtractor
+import com.wwwjf.videodemo.media.BaseDecoder
+import com.wwwjf.videodemo.media.IExtractor
+import com.wwwjf.videodemo.media.extractor.VideoExtractor
 import java.nio.ByteBuffer
 
 

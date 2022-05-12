@@ -1,4 +1,4 @@
-package com.cxp.learningvideo.media
+package com.wwwjf.videodemo.media
 
 import android.media.MediaCodec
 import android.media.MediaFormat
@@ -103,7 +103,8 @@ abstract class BaseDecoder(private val mFilePath: String): IDecoder {
             while (mIsRunning) {
                 if (mState != DecodeState.START &&
                     mState != DecodeState.DECODING &&
-                    mState != DecodeState.SEEKING) {
+                    mState != DecodeState.SEEKING
+                ) {
                     Log.i(TAG, "进入等待：$mState")
 
                     waitDecode()
@@ -114,7 +115,8 @@ abstract class BaseDecoder(private val mFilePath: String): IDecoder {
                 }
 
                 if (!mIsRunning ||
-                    mState == DecodeState.STOP) {
+                    mState == DecodeState.STOP
+                ) {
                     mIsRunning = false
                     break
                 }

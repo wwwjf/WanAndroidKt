@@ -1,4 +1,4 @@
-package com.cxp.learningvideo.media.muxer
+package com.wwwjf.videodemo.media.muxer
 
 import android.media.MediaCodec
 import android.media.MediaFormat

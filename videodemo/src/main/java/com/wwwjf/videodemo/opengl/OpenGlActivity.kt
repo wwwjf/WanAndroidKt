@@ -1,30 +1,32 @@
 package com.wwwjf.videodemo.opengl
 
-import android.content.Context
 import android.graphics.BitmapFactory
 import android.opengl.GLSurfaceView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.util.Log
+import android.os.Handler
 import android.view.Surface
-import androidx.core.os.EnvironmentCompat
-import com.cxp.learningvideo.media.decoder.AudioDecoder
-import com.cxp.learningvideo.media.decoder.VideoDecoder
+import com.wwwjf.videodemo.media.decoder.AudioDecoder
+import com.wwwjf.videodemo.media.decoder.VideoDecoder
 import com.wwwjf.videodemo.R
 import java.util.concurrent.Executors
 
 class OpenGlActivity : AppCompatActivity() {
     private val TAG = OpenGlActivity::class.java.simpleName
     val path = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/8a554b2ce6a3d0ee34d534602429885d.mp4"
+//    val path2 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/85d49cd0468fba88ecf47d0622310345.mp4"
+    val path2 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/d61027d389ca66658ae3aff7a253103d.mp4"
     lateinit var drawer: IDrawer
-    lateinit var glSurfaceView: GLSurfaceView
+    lateinit var glSurfaceView: DefGLSurfaceView
     var videoDecoder: VideoDecoder? = null
     var audioDecoder:AudioDecoder? = null
+    val threadPool = Executors.newFixedThreadPool(10)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_open_gl)
-        glSurfaceView = findViewById<GLSurfaceView>(R.id.glSurfaceView)
+        glSurfaceView = findViewById(R.id.glSurfaceView)
         when (intent.getIntExtra("type", 0)) {
             0 -> {
                 drawer = TriangleDrawer()
@@ -37,6 +39,10 @@ class OpenGlActivity : AppCompatActivity() {
             2->{
                 drawer = VideoDrawer()
                 initVideoDrawer()
+            }
+            3->{
+                drawer = VideoDrawer()
+                initMultiVideoDrawer()
             }
         }
     }
@@ -55,7 +61,7 @@ class OpenGlActivity : AppCompatActivity() {
 
         drawer.getSurfaceTexture {
             //使用SurfaceTexture初始化一个Surface，并传递给MediaCodec使用
-            initPlayer(Surface(it))
+            initPlayer(path,Surface(it))
         }
 
         glSurfaceView.setEGLContextClientVersion(2)
@@ -65,18 +71,44 @@ class OpenGlActivity : AppCompatActivity() {
 
     }
 
-    private fun initPlayer(sf: Surface) {
-        val threadPool = Executors.newFixedThreadPool(10)
+
+    private fun initMultiVideoDrawer() {
+        val render = SimpleRender()
+        val drawer1 = VideoDrawer()
+        drawer1.setVideoSize(1920,1080)
+        drawer1.getSurfaceTexture {
+            initPlayer(path,Surface(it),true)
+        }
+        render.addDrawer(drawer1)
+        val drawer2 = VideoDrawer()
+        drawer2.setAlpha(0.2f)
+        drawer2.setVideoSize(1080,1920)
+        drawer2.getSurfaceTexture {
+            initPlayer(path2, Surface(it),false)
+        }
+        render.addDrawer(drawer2)
+        glSurfaceView.addDrawer(drawer2)
+
+        glSurfaceView.setEGLContextClientVersion(2)
+        glSurfaceView.setRenderer(render)
+
+        Handler().post {
+            drawer2.scale(0.5f,0.5f)
+        }
+
+    }
+
+    private fun initPlayer(path:String, sf: Surface,withSound:Boolean=true) {
 
         videoDecoder = VideoDecoder(path, null, sf)
         threadPool.execute(videoDecoder)
-
-        audioDecoder = AudioDecoder(path)
-        threadPool.execute(audioDecoder)
-
-
         videoDecoder?.goOn()
-        audioDecoder?.goOn()
+
+        if (withSound) {
+            audioDecoder = AudioDecoder(path)
+            threadPool.execute(audioDecoder)
+            audioDecoder?.goOn()
+        }
     }
 
     override fun onDestroy() {

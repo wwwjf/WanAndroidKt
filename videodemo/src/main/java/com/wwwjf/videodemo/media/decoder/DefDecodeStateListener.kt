@@ -1,8 +1,8 @@
-package com.cxp.learningvideo.media.decoder
+package com.wwwjf.videodemo.media.decoder
 
-import com.cxp.learningvideo.media.BaseDecoder
-import com.cxp.learningvideo.media.Frame
-import com.cxp.learningvideo.media.IDecoderStateListener
+import com.wwwjf.videodemo.media.BaseDecoder
+import com.wwwjf.videodemo.media.Frame
+import com.wwwjf.videodemo.media.IDecoderStateListener
 
 
 /**

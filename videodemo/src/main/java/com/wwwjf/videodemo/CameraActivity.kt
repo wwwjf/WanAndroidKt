@@ -4,15 +4,17 @@ import android.Manifest
 import android.content.ContentUris
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
+import android.location.Criteria
 import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.DocumentsContract
-import android.provider.DocumentsProvider
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.MediaController
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -97,6 +99,11 @@ class CameraActivity : AppCompatActivity() {
         startActivityForResult(intent, 101)
     }
 
+    fun takeVideo(view: View){
+        val intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+        startActivityForResult(intent,102)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (RESULT_OK != resultCode) {
@@ -104,14 +111,34 @@ class CameraActivity : AppCompatActivity() {
         }
         Log.e(TAG, "onActivityResult: ${data},${data?.hasExtra("data")},${data?.data}")
         if (requestCode == 100) {
-            viewBinding.ivActivityCamera.setImageURI(mImageUri)
+            viewBinding.ivActivityCamera.visibility = View.VISIBLE
+            viewBinding.videoActivityCamera.visibility = View.GONE
+//            viewBinding.ivActivityCamera.setImageURI(mImageUri)
+            cropPicture(mImageUri)
             //添加到系统相册
             addToAlbum()
         } else if (requestCode == 101) {
+            viewBinding.ivActivityCamera.visibility = View.VISIBLE
+            viewBinding.videoActivityCamera.visibility = View.GONE
             //content://com.android.providers.media.documents/document/image%3A846379
             val uri = data?.data
             val path = getAbsolutePath(uri)
             viewBinding.ivActivityCamera.setImageURI(uri)
+
+        } else if (requestCode == 102){
+            viewBinding.ivActivityCamera.visibility = View.GONE
+            viewBinding.videoActivityCamera.visibility = View.VISIBLE
+            val uri = data?.data
+            viewBinding.videoActivityCamera.setVideoURI(uri)
+            viewBinding.videoActivityCamera.requestFocus()
+            viewBinding.videoActivityCamera.setOnPreparedListener {
+                it.isLooping = true
+            }
+            viewBinding.videoActivityCamera.start()
+            val mediaController = MediaController(this)
+            viewBinding.videoActivityCamera.setMediaController(mediaController)
+            mediaController.setMediaPlayer(viewBinding.videoActivityCamera)
+            mediaController.show()
 
         }
     }
@@ -190,4 +217,29 @@ class CameraActivity : AppCompatActivity() {
         intent.setData(mImageUri)
         sendBroadcast(intent)
     }
+
+
+    /**
+     * 剪裁图片
+     */
+    private fun cropPicture(imageUri: Uri) {
+        val width = viewBinding.ivActivityCamera.width
+        val height = viewBinding.ivActivityCamera.height
+        Log.e(TAG, "cropPicture: width=$width,height=$height")
+        val options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        BitmapFactory.decodeFile(outputImage.absolutePath,options)
+
+        val pictureW = options.outWidth
+        val pictureH = options.outHeight
+        options.inJustDecodeBounds = false
+        val scale = Math.min(pictureW/width,pictureH/height)
+        Log.e(TAG, "cropPicture: pictureW=$pictureW,pictureH=$pictureH,scale=$scale")
+        options.inSampleSize =scale
+
+        val bitmap = BitmapFactory.decodeFile(outputImage.absolutePath,options)
+        Log.e(TAG, "cropPicture: bitmap size=${bitmap.byteCount}")//40108032  1602540
+        viewBinding.ivActivityCamera.setImageBitmap(bitmap)
+    }
+
 }

@@ -7,11 +7,22 @@
     android:orientation="vertical"
     tools:context=".CameraActivity">
 
-    <ImageView
-        android:id="@+id/iv_activity_camera"
-        android:layout_width="150dp"
-        android:layout_gravity="center"
-        android:layout_height="200dp" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <ImageView
+            android:id="@+id/iv_activity_camera"
+            android:layout_width="150dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_height="match_parent" />
+        <VideoView
+            android:id="@+id/video_activity_camera"
+            android:layout_width="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_height="match_parent"/>
+    </FrameLayout>
 
     <Button
         android:id="@+id/btn_activity_camera"
@@ -24,4 +35,9 @@
         android:layout_height="wrap_content"
         android:onClick="openAlbum"
         android:text="打开相册" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="takeVideo"
+        android:text="录屏" />
 </LinearLayout>

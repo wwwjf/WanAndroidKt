@@ -1,4 +1,4 @@
-package com.chenlittleping.videoeditor.decoder
+package com.wwwjf.videodemo.media.extractor
 
 import android.media.MediaExtractor
 import android.media.MediaFormat

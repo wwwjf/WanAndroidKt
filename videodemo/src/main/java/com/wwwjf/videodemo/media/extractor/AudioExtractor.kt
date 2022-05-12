@@ -1,8 +1,8 @@
-package com.cxp.learningvideo.media.extractor
+package com.wwwjf.videodemo.media.extractor
 
 import android.media.MediaFormat
-import com.chenlittleping.videoeditor.decoder.MMExtractor
-import com.cxp.learningvideo.media.IExtractor
+import com.wwwjf.videodemo.media.extractor.MMExtractor
+import com.wwwjf.videodemo.media.IExtractor
 import java.nio.ByteBuffer
 
 

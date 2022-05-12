@@ -1,12 +1,9 @@
 package com.wwwjf.videodemo;
 
 import android.media.MediaCodec;
-import android.media.MediaFormat;
 import android.util.Log;
-import android.view.ViewGroup;
 
 import java.io.ByteArrayOutputStream;
-import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +11,8 @@ import java.nio.ByteBuffer;
 
 public class DecodeThread implements Runnable {
     public static final String TAG = DecodeThread.class.getSimpleName();
-    private MediaCodec mMediaCodec;
-    private DataInputStream mInputStream;
+    private final MediaCodec mMediaCodec;
+    private final DataInputStream mInputStream;
 
     public DecodeThread(MediaCodec mediaCodec, DataInputStream inputStream){
         mMediaCodec = mediaCodec;
@@ -35,16 +32,15 @@ public class DecodeThread implements Runnable {
         // 获取缓冲区的时候，需要等待的时间(单位：毫秒)
         long timeoutUs = 10000;
         byte[] streamBuffer = null;
+        int bytes_cnt = 0;
         try {
             // 返回可用的字节数组
             streamBuffer = getBytes(mInputStream);
+            // 得到可用字节数组长度
+            bytes_cnt = streamBuffer.length;
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        int bytes_cnt = 0;
-        // 得到可用字节数组长度
-        bytes_cnt = streamBuffer.length;
 
         // 没有得到可用数组
         if (bytes_cnt == 0) {
@@ -105,10 +101,10 @@ public class DecodeThread implements Runnable {
     /**
      * 查找帧头部的位置
      * 在实际的H264数据帧中，往往帧前面带有00 00 00 01 或 00 00 01分隔符
-     * @param bytes
-     * @param start
-     * @param totalSize
-     * @return
+     * @param bytes 数据
+     * @param start 开始位置
+     * @param totalSize 总和
+     * @return 返回位置
      */
     private int findHeadFrame(byte[] bytes, int start, int totalSize) {
         for (int i = start; i < totalSize - 4; i++) {
