@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><!--已有背景颜色下设置点击效果-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white" />
+        </shape>
+    </item>
+    <item android:drawable="?attr/selectableItemBackground" />
+</layer-list>

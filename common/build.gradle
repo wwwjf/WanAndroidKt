@@ -46,5 +46,16 @@ dependencies {
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+
+    //RxJava2
+    api "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    api "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+    api "io.reactivex.rxjava2:rxkotlin:$rxkotlin_version"
+
+    api "lib.gorden.rxbus2:rxbus:$rxbus_version"
+
+    api "androidx.swiperefreshlayout:swiperefreshlayout:$swiperefreshlayout_version"
+
     api project(":base")
+    api project(":mvp")
 }

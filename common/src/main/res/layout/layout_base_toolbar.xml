@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_48"
+    android:background="@color/white"
+    android:paddingStart="@dimen/dp_0"
+    android:paddingEnd="@dimen/dp_6"
+    app:navigationIcon="@drawable/ic_back_17364e">
+
+
+    <TextView
+        android:id="@+id/tv_toolbar_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:textColor="#17364E"
+        android:textSize="@dimen/sp_18"
+        tools:text="中间文字" />
+
+    <ImageView
+        android:id="@+id/iv_toolbar_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end">
+
+        <ImageView
+            android:id="@+id/iv_toolbar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_item_ffffffff_c0dp"
+            android:paddingStart="@dimen/dp_8"
+            android:paddingLeft="@dimen/dp_8"
+            android:paddingTop="@dimen/dp_4"
+            android:paddingEnd="@dimen/dp_8"
+            android:paddingRight="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_4"
+            android:visibility="gone"
+            tools:src="@drawable/ic_navigate_243f5e_next"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/view_toolbar_right"
+            android:layout_width="@dimen/dp_8"
+            android:layout_height="@dimen/dp_8"
+            android:layout_alignTop="@+id/iv_toolbar_right"
+            android:layout_marginStart="@dimen/dp_m_12"
+            android:layout_toEndOf="@+id/iv_toolbar_right"
+            android:background="@drawable/drawable_badge"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_toolbar_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@drawable/selector_item_ffffffff_c0dp"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/dp_8"
+        android:paddingLeft="@dimen/dp_8"
+        android:paddingTop="@dimen/dp_8"
+        android:paddingEnd="@dimen/dp_8"
+        android:paddingRight="@dimen/dp_8"
+        android:paddingBottom="@dimen/dp_8"
+        android:textColor="#17364E"
+        android:textSize="@dimen/sp_14"
+        android:visibility="gone"
+        tools:text="右边文字"
+        tools:visibility="visible" />
+
+</androidx.appcompat.widget.Toolbar>
