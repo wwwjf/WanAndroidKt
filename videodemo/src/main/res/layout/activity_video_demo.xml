@@ -65,4 +65,11 @@
         android:text="openGL多视频"
         android:textAllCaps="false" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openGL5"
+        android:text="openGL-EGL"
+        android:textAllCaps="false" />
+
 </LinearLayout>

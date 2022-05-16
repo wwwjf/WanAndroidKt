@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application android:usesCleartextTraffic="true">
+        <activity android:name=".opengl.EglPlayerActivity" />
         <activity android:name=".opengl.OpenGlActivity" />
         <activity android:name=".CameraActivity" />
         <activity android:name=".MediaCodecActivity" />

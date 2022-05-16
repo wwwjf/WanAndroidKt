@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.wwwjf.base.PermissionManager
+import com.wwwjf.videodemo.opengl.EglPlayerActivity
 import com.wwwjf.videodemo.opengl.OpenGlActivity
 
 class VideoDemoActivity : AppCompatActivity() {
@@ -71,6 +72,11 @@ class VideoDemoActivity : AppCompatActivity() {
     }
     fun openGL4(view: View) {
         val intent = Intent(this,OpenGlActivity::class.java)
+        intent.putExtra("type",3)
+        startActivity(intent)
+    }
+    fun openGL5(view: View) {
+        val intent = Intent(this,EglPlayerActivity::class.java)
         intent.putExtra("type",3)
         startActivity(intent)
     }

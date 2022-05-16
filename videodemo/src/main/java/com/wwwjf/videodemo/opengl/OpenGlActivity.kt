@@ -92,9 +92,9 @@ class OpenGlActivity : AppCompatActivity() {
         glSurfaceView.setEGLContextClientVersion(2)
         glSurfaceView.setRenderer(render)
 
-        Handler().post {
+        Handler().postDelayed ({
             drawer2.scale(0.5f,0.5f)
-        }
+        },100)
 
     }
 
