@@ -3,6 +3,7 @@ package com.wwwjf.hookdemo;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 
@@ -21,10 +22,20 @@ public class HookUtil {
     public static void hookAMS(Context context) {
 
         try {
-            Class<?> activityTaskManager = Class.forName("android.app.ActivityTaskManager");
-            Field field = activityTaskManager.getDeclaredField("IActivityTaskManagerSingleton");
-            field.setAccessible(true);
-            Object singleTon = field.get(null);
+            //获取singleTon对象
+            Field singleTonField;
+            if (Build.VERSION.SDK_INT<Build.VERSION_CODES.O){//小于8.0
+                Log.e(TAG, "hookAMS: <8.0");
+                Class<?> activityTaskManager = Class.forName("android.app.ActivityManagerNative");
+                singleTonField = activityTaskManager.getDeclaredField("gDefault");
+            } else {
+                Log.e(TAG, "hookAMS: >=8.0");
+                Class<?> activityTaskManager = Class.forName("android.app.ActivityTaskManager");
+                singleTonField = activityTaskManager.getDeclaredField("IActivityTaskManagerSingleton");
+            }
+
+            singleTonField.setAccessible(true);
+            Object singleTon = singleTonField.get(null);
 
             Class<?> singleTonClass = Class.forName("android.util.Singleton");
             Field mInstanceField = singleTonClass.getDeclaredField("mInstance");
