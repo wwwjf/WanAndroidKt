@@ -5,6 +5,7 @@ import android.graphics.PointF
 import android.opengl.GLSurfaceView
 import android.util.AttributeSet
 import android.view.MotionEvent
+import com.wwwjf.videodemo.opengl.drawer.VideoDrawer
 
 class DefGLSurfaceView : GLSurfaceView {
 

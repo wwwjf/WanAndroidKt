@@ -10,6 +10,7 @@ import com.wwwjf.videodemo.R
 import com.wwwjf.videodemo.databinding.ActivityEglPlayerBinding
 import com.wwwjf.videodemo.media.decoder.AudioDecoder
 import com.wwwjf.videodemo.media.decoder.VideoDecoder
+import com.wwwjf.videodemo.opengl.drawer.VideoDrawer
 import com.wwwjf.videodemo.opengl.egl.CustomerGLRenderer
 import java.util.concurrent.Executors
 

@@ -71,5 +71,11 @@
         android:onClick="openGL5"
         android:text="openGL-EGL"
         android:textAllCaps="false" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openGL6"
+        android:text="openGL-抖音特效"
+        android:textAllCaps="false" />
 
 </LinearLayout>

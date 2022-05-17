@@ -1,7 +1,6 @@
 package com.wwwjf.videodemo.opengl
 
 import android.graphics.BitmapFactory
-import android.opengl.GLSurfaceView
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
@@ -10,6 +9,10 @@ import android.view.Surface
 import com.wwwjf.videodemo.media.decoder.AudioDecoder
 import com.wwwjf.videodemo.media.decoder.VideoDecoder
 import com.wwwjf.videodemo.R
+import com.wwwjf.videodemo.opengl.drawer.BitmapDrawer
+import com.wwwjf.videodemo.opengl.drawer.SoulVideoDrawer
+import com.wwwjf.videodemo.opengl.drawer.TriangleDrawer
+import com.wwwjf.videodemo.opengl.drawer.VideoDrawer
 import java.util.concurrent.Executors
 
 class OpenGlActivity : AppCompatActivity() {
@@ -17,6 +20,8 @@ class OpenGlActivity : AppCompatActivity() {
     val path = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/8a554b2ce6a3d0ee34d534602429885d.mp4"
 //    val path2 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/85d49cd0468fba88ecf47d0622310345.mp4"
     val path2 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/d61027d389ca66658ae3aff7a253103d.mp4"
+//    val path3 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/share_9bab908bd86f1697778a917f64591440.mp4"
+    val path3 = "https://v.douyin.com/FHDWmAU"
     lateinit var drawer: IDrawer
     lateinit var glSurfaceView: DefGLSurfaceView
     var videoDecoder: VideoDecoder? = null
@@ -43,6 +48,10 @@ class OpenGlActivity : AppCompatActivity() {
             3->{
                 drawer = VideoDrawer()
                 initMultiVideoDrawer()
+            }
+            4->{
+                drawer = SoulVideoDrawer()
+                initSoulDrawer()
             }
         }
     }
@@ -95,6 +104,19 @@ class OpenGlActivity : AppCompatActivity() {
         Handler().postDelayed ({
             drawer2.scale(0.5f,0.5f)
         },100)
+
+    }
+
+
+    private fun initSoulDrawer() {
+        val render = SimpleRender()
+        drawer.setVideoSize(1080,1920)
+        drawer.getSurfaceTexture {
+            initPlayer(path3, Surface(it))
+        }
+        render.addDrawer(drawer)
+        glSurfaceView.setEGLContextClientVersion(2)
+        glSurfaceView.setRenderer(render)
 
     }
 

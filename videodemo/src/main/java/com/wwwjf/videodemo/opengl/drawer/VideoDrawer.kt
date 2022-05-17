@@ -1,9 +1,10 @@
-package com.wwwjf.videodemo.opengl
+package com.wwwjf.videodemo.opengl.drawer
 
 import android.graphics.SurfaceTexture
 import android.opengl.GLES11Ext
 import android.opengl.GLES20
 import android.opengl.Matrix
+import com.wwwjf.videodemo.opengl.IDrawer
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import java.nio.FloatBuffer
