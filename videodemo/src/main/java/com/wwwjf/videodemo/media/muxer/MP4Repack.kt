@@ -16,13 +16,13 @@ import java.nio.ByteBuffer
  * @Datetime 2019-09-19 14:09
  *
  */
-class MP4Repack(path: String) {
+class MP4Repack(path: String,resultPath:String) {
 
     private val TAG = "MP4Repack"
 
     private val mAExtractor: AudioExtractor = AudioExtractor(path)
     private val mVExtractor: VideoExtractor = VideoExtractor(path)
-    private val mMuxer: MMuxer = MMuxer()
+    private val mMuxer: MMuxer = MMuxer(resultPath)
 
     fun start() {
         val audioFormat = mAExtractor.getFormat()

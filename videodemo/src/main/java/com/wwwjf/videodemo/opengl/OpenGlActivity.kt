@@ -20,8 +20,8 @@ class OpenGlActivity : AppCompatActivity() {
     val path = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/8a554b2ce6a3d0ee34d534602429885d.mp4"
 //    val path2 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/85d49cd0468fba88ecf47d0622310345.mp4"
     val path2 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/d61027d389ca66658ae3aff7a253103d.mp4"
-//    val path3 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/share_9bab908bd86f1697778a917f64591440.mp4"
-    val path3 = "https://v.douyin.com/FHDWmAU"
+    val path3 = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/share_9bab908bd86f1697778a917f64591440.mp4"
+//    val path3 = "https://v.douyin.com/FHDWmAU"
     lateinit var drawer: IDrawer
     lateinit var glSurfaceView: DefGLSurfaceView
     var videoDecoder: VideoDecoder? = null

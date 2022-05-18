@@ -22,6 +22,9 @@ class EglPlayerActivity : AppCompatActivity() {
     private val threadPool = Executors.newFixedThreadPool(10)
     private lateinit var mRenderer:CustomerGLRenderer
     private lateinit var surfaceView: SurfaceView
+    private lateinit var drawer:VideoDrawer
+    private var videoDecoder:VideoDecoder? = null
+    private var audioDecoder: AudioDecoder? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +47,9 @@ class EglPlayerActivity : AppCompatActivity() {
     }
 
     private fun initSecondVideo() {
-        val drawer = VideoDrawer()
+        drawer = VideoDrawer()
         drawer.setAlpha(0.5f)
-        drawer.setVideoSize(1920, 1080)
+        drawer.setVideoSize(1080, 1920)
         drawer.getSurfaceTexture {
             initPlayer(path2, Surface(it), false)
         }
@@ -58,20 +61,28 @@ class EglPlayerActivity : AppCompatActivity() {
     }
 
     private fun initPlayer(path: String, sf: Surface, withSound: Boolean) {
-        val videoDecoder = VideoDecoder(path, null, sf)
+        videoDecoder = VideoDecoder(path, null, sf)
         threadPool.execute(videoDecoder)
-        videoDecoder.goOn()
+        videoDecoder?.goOn()
 
         if (withSound) {
-            val audioDecoder = AudioDecoder(path)
+            audioDecoder = AudioDecoder(path)
             threadPool.execute(audioDecoder)
-            audioDecoder.goOn()
+            audioDecoder?.goOn()
         }
     }
 
     private fun setRenderSurface() {
         mRenderer.setSurface(surfaceView)
         mRenderer.setRenderMode(CustomerGLRenderer.RenderMode.RENDER_CONTINUOUSLY)
+    }
+
+    override fun onDestroy() {
+        drawer.release()
+        videoDecoder?.stop()
+        audioDecoder?.stop()
+        super.onDestroy()
+
     }
 
 }

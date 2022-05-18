@@ -1,92 +1,109 @@
-package com.wwwjf.videodemo.opengl.egl
-
 import android.graphics.SurfaceTexture
 import android.opengl.*
 import android.util.Log
 import android.view.Surface
 
+/**
+ * EGL基础封装
+ *
+ * @author Chen Xiaoping (562818444@qq.com)
+ * @since LearningVideo
+ * @version LearningVideo
+ * @Datetime 2019-11-30 22:44
+ *
+ */
 const val FLAG_RECORDABLE = 0x01
+
+// Android 指定的标志
+// 告诉EGL它创建的surface必须和视频编解码器兼容。
+// 没有这个标志，EGL可能会使用一个MediaCodec不能理解的Buffer
+// 这个变量在api26以后系统才自带有，为了兼容，我们自己写好这个值0x3142
 const val EGL_RECORDABLE_ANDROID = 0x3142
 
 class EGLCore {
-    private val TAG = EGLCore::class.java.simpleName
+
+    private val TAG = "EGLCore"
+
+    // EGL相关变量
     private var mEGLDisplay: EGLDisplay = EGL14.EGL_NO_DISPLAY
-    private var mEGLContext: EGLContext = EGL14.EGL_NO_CONTEXT
+    private var mEGLContext = EGL14.EGL_NO_CONTEXT
     private var mEGLConfig: EGLConfig? = null
 
-    fun init(eglContext: EGLContext?,flag:Int){
-        if (mEGLDisplay != EGL14.EGL_NO_DISPLAY){
-            throw RuntimeException("EGL already setup")
+    /**
+     * 初始化EGLDisplay
+     * @param eglContext 共享上下文
+     */
+    fun init(eglContext: EGLContext?, flags: Int) {
+        if (mEGLDisplay !== EGL14.EGL_NO_DISPLAY) {
+            throw RuntimeException("EGL already set up")
         }
-        val sharedContext = eglContext?:EGL14.EGL_NO_CONTEXT
 
-        // 1、创建EGLDisplay
+        val sharedContext = eglContext ?: EGL14.EGL_NO_CONTEXT
+
         mEGLDisplay = EGL14.eglGetDisplay(EGL14.EGL_DEFAULT_DISPLAY)
-        if (mEGLDisplay== EGL14.EGL_NO_DISPLAY){
-            throw RuntimeException("Unable to get EGL14Display")
+        if (mEGLDisplay === EGL14.EGL_NO_DISPLAY) {
+            throw RuntimeException("Unable to get EGL14 display")
         }
 
-        // 2、初始化EGLDisplay
         val version = IntArray(2)
-        if (!EGL14.eglInitialize(mEGLDisplay,version,0,version,1)){
-            mEGLDisplay= EGL14.EGL_NO_DISPLAY
+        if (!EGL14.eglInitialize(mEGLDisplay, version, 0, version, 1)) {
+            mEGLDisplay = EGL14.EGL_NO_DISPLAY
             throw RuntimeException("unable to initialize EGL14")
         }
 
-        // 3，初始化EGLConfig，EGLContext上下文
-        if (mEGLContext == EGL14.EGL_NO_CONTEXT){
-            val config = getConfig(flag,3)?:throw RuntimeException("Unable to find a suitable EGLConfig")
+        if (mEGLContext === EGL14.EGL_NO_CONTEXT) {
+            val config = getConfig(flags, 2) ?: throw RuntimeException("Unable to find a suitable EGLConfig")
             val attr2List = intArrayOf(EGL14.EGL_CONTEXT_CLIENT_VERSION, 2, EGL14.EGL_NONE)
-            val context = EGL14.eglCreateContext(mEGLDisplay,
-            mEGLConfig,sharedContext,attr2List,0)
+            val context = EGL14.eglCreateContext(
+                mEGLDisplay, config, sharedContext,
+                attr2List, 0
+            )
             mEGLConfig = config
             mEGLContext = context
         }
-
     }
 
     /**
-     *
      * 获取EGL配置信息
      * @param flags 初始化标记
      * @param version EGL版本
      */
     private fun getConfig(flags: Int, version: Int): EGLConfig? {
-        var renderableType = EGL14.EGL_OPENGL_BIT
-        if (version>=3){
+        var renderableType = EGL14.EGL_OPENGL_ES2_BIT
+        if (version >= 3) {
+            // 配置EGL 3
             renderableType = renderableType or EGLExt.EGL_OPENGL_ES3_BIT_KHR
         }
 
-        // 配置数组，主要是配置RAGA位数和深度位数
-        // 两个为一对，前面是key，后面是value
-        // 数组必须以EGL14.EGL_NONE结尾
-        var attrList = intArrayOf(
-            EGL14.EGL_RED_SIZE,8,
-            EGL14.EGL_GREEN_SIZE,8,
-            EGL14.EGL_BLUE_SIZE,8,
-            EGL14.EGL_ALPHA_SIZE,8,
-//            EGL14.EGL_DEPTH_SIZE,16,
-//            EGL14.EGL_STENCIL_SIZE,8,
-            EGL14.EGL_RENDERABLE_TYPE,renderableType,
-            EGL14.EGL_NONE,0,
+        // The actual surface is generally RGBA or RGBX, so situationally omitting alpha
+        // doesn't really help.  It can also lead to a huge performance hit on glReadPixels()
+        // when reading into a GL_RGBA buffer.
+        val attrList = intArrayOf(
+            EGL14.EGL_RED_SIZE, 8,
+            EGL14.EGL_GREEN_SIZE, 8,
+            EGL14.EGL_BLUE_SIZE, 8,
+            EGL14.EGL_ALPHA_SIZE, 8,
+            //EGL14.EGL_DEPTH_SIZE, 16,
+            //EGL14.EGL_STENCIL_SIZE, 8,
+            EGL14.EGL_RENDERABLE_TYPE, renderableType,
+            EGL14.EGL_NONE, 0, // placeholder for recordable [@-3]
             EGL14.EGL_NONE
         )
         //配置Android指定的标记
-        if (flags and FLAG_RECORDABLE != 0){
-            attrList[attrList.size -3] = EGL_RECORDABLE_ANDROID
-            attrList[attrList.size-2] = 1
+        if (flags and FLAG_RECORDABLE != 0) {
+            attrList[attrList.size - 3] = EGL_RECORDABLE_ANDROID
+            attrList[attrList.size - 2] = 1
         }
         val configs = arrayOfNulls<EGLConfig>(1)
         val numConfigs = IntArray(1)
 
-        //获取可用的EGL配置列表
+        //获取EGL配置
         if (!EGL14.eglChooseConfig(mEGLDisplay, attrList, 0,
                 configs, 0, configs.size,
                 numConfigs, 0)) {
             Log.w(TAG, "Unable to find RGB8888 / $version EGLConfig")
             return null
         }
-
         //使用系统推荐的第一个配置
         return configs[0]
     }

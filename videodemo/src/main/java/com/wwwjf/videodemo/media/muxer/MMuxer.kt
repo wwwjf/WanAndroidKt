@@ -1,5 +1,6 @@
 package com.wwwjf.videodemo.media.muxer
 
+import android.content.Context
 import android.media.MediaCodec
 import android.media.MediaFormat
 import android.media.MediaMuxer
@@ -38,10 +39,11 @@ class MMuxer {
 
     private var mStateListener: IMuxerStateListener?  = null
 
-    init {
-        val fileName = "LVideo_Test" + /*SimpleDateFormat("yyyyMM_dd-HHmmss").format(Date()) +*/ ".mp4"
-        val filePath = Environment.getExternalStorageDirectory().absolutePath.toString() + "/"
-        mPath = filePath + fileName
+    constructor(path:String){
+
+//        val fileName = "LVideo_Test" + /*SimpleDateFormat("yyyyMM_dd-HHmmss").format(Date()) +*/ ".mp4"
+//        val filePath = context.externalCacheDir?.absolutePath.toString() + "/"
+        mPath = path
         mMediaMuxer = MediaMuxer(mPath, MediaMuxer.OutputFormat.MUXER_OUTPUT_MPEG_4)
     }
 
@@ -143,7 +145,7 @@ class MMuxer {
     }
 
     interface IMuxerStateListener {
-        fun onMuxerStart() {}
-        fun onMuxerFinish() {}
+        fun onMuxerStart()
+        fun onMuxerFinish()
     }
 }

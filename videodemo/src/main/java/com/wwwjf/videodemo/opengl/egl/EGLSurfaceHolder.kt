@@ -1,11 +1,12 @@
 package com.wwwjf.videodemo.opengl.egl
 
+import EGLCore
 import android.opengl.EGLContext
 import android.opengl.EGLSurface
 
 class EGLSurfaceHolder {
 
-    private val TAG = EGLSurfaceHolder::class.java.simpleName
+    private val TAG = "EGLSurfaceHolder"
 
     private lateinit var mEGLCore: EGLCore
 
@@ -33,6 +34,12 @@ class EGLSurfaceHolder {
     fun swapBuffers() {
         if (mEGLSurface != null) {
             mEGLCore.swapBuffers(mEGLSurface!!)
+        }
+    }
+
+    fun setTimestamp(timeMs: Long) {
+        if (mEGLSurface != null) {
+            mEGLCore.setPresentationTime(mEGLSurface!!, timeMs * 1000)
         }
     }
 

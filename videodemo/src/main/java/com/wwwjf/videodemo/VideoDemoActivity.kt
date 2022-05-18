@@ -85,4 +85,9 @@ class VideoDemoActivity : AppCompatActivity() {
         intent.putExtra("type",4)
         startActivity(intent)
     }
+    fun openGL7(view: View) {
+        val intent = Intent(this,SynthesizerActivity::class.java)
+        intent.putExtra("type",4)
+        startActivity(intent)
+    }
 }

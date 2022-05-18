@@ -1,5 +1,6 @@
 package com.wwwjf.videodemo.opengl.egl
 
+import EGL_RECORDABLE_ANDROID
 import android.opengl.GLES20
 import com.wwwjf.videodemo.opengl.IDrawer
 import com.wwwjf.videodemo.opengl.OpenGlTools

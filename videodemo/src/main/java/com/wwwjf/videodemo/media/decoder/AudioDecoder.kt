@@ -1,6 +1,7 @@
 package com.wwwjf.videodemo.media.decoder
 
 import android.media.*
+import com.wwwjf.base.KLog
 import com.wwwjf.videodemo.media.BaseDecoder
 import com.wwwjf.videodemo.media.IExtractor
 import com.wwwjf.videodemo.media.extractor.AudioExtractor
@@ -63,9 +64,11 @@ class AudioDecoder(path: String): BaseDecoder(path) {
     override fun initRender(): Boolean {
         val channel = if (mChannels == 1) {
             //单声道
+            KLog.e("单声道")
             AudioFormat.CHANNEL_OUT_MONO
         } else {
             //双声道
+            KLog.e("双声道")
             AudioFormat.CHANNEL_OUT_STEREO
         }
 
@@ -74,6 +77,7 @@ class AudioDecoder(path: String): BaseDecoder(path) {
 
         mAudioOutTempBuf = ShortArray(minBufferSize/2)
 
+        KLog.e("mSampleRate=${mSampleRate},channel=${channel},mPCMEncodeBit=${mPCMEncodeBit},minBufferSize=${minBufferSize}")
         mAudioTrack = AudioTrack(
             AudioManager.STREAM_MUSIC,//播放类型：音乐
             mSampleRate, //采样率
