@@ -1,0 +1,79 @@
+plugins {
+    id 'org.jetbrains.kotlin.android'
+}
+
+if (isLibrary.toBoolean()){
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin:  'com.android.application'
+}
+
+android {
+    compileSdkVersion Integer.valueOf(compile_sdk_version)
+
+    defaultConfig {
+        if (!isLibrary.toBoolean()){
+            applicationId "com.wwwjf.ffmpegdemo"
+        }
+
+        minSdkVersion Integer.valueOf(min_sdk_version)
+        targetSdkVersion Integer.valueOf(target_sdk_version)
+        versionCode Integer.valueOf(version_code)
+        versionName "$version_name"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+
+    sourceSets{
+        main{
+            if (isLibrary.toBoolean()){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.18.1'
+        }
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
+
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+    implementation project(":common")
+}
