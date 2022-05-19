@@ -5,7 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
+import android.os.Message;
+import android.os.Parcelable;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -16,7 +20,7 @@ import java.util.List;
 public class HookUtil {
 
 
-    private static final String TARGET_INTENT = "target_intent";
+    public static final String TARGET_INTENT = "target_intent";
     private static final String TAG = HookUtil.class.getSimpleName();
 
     public static void hookAMS(Context context) {
@@ -91,7 +95,26 @@ public class HookUtil {
             Field mCallbackField = Handler.class.getDeclaredField("mCallback");
             mCallbackField.setAccessible(true);
             mCallbackField.set(mH, (Handler.Callback) msg -> {
-                if (msg.what == 159) {
+                if (Build.VERSION.SDK_INT >Build.VERSION_CODES.O && msg.what == 100) {
+                    if (msg.what != 100) {
+                        return false;
+                    }
+                    //通过msg可以拿到intent，可以换回执行插件的intent
+                    try {
+                        Field intentField = msg.obj.getClass().getDeclaredField("intent");
+                        intentField.setAccessible(true);
+                        //启动代理intent
+                        Intent proxyIntent = (Intent) intentField.get(msg.obj);
+                        Intent intent = proxyIntent.getParcelableExtra(TARGET_INTENT);
+                        if (intent != null) {
+                            intentField.set(msg.obj, intent);
+                        }
+                    } catch (NoSuchFieldException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+                } else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.Q && msg.what == 159) {
                     try {
                         Field mActivityCallbacksField = msg.obj.getClass().getDeclaredField("mActivityCallbacks");
                         mActivityCallbacksField.setAccessible(true);

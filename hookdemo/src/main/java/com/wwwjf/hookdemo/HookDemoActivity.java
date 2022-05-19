@@ -76,6 +76,7 @@ public class HookDemoActivity extends AppCompatActivity {
 //        intent.addFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);相当于startActivityForresult
         intent.putExtra("fakeComponentName",new ComponentName(getPackageName(),ProxyActivity.class.getName()));
         intent.putExtra("realComponentName",new ComponentName(getPackageName(),HookActivity.class.getName()));
+        intent.putExtra(HookUtil.TARGET_INTENT,Hook2Activity.class);
         startActivity(intent);
     }
 

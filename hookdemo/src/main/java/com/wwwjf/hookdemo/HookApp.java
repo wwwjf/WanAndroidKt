@@ -18,9 +18,9 @@ public class HookApp extends Application {
         super.onCreate();
 
         Hotfix.installPatch(this,new File(getExternalFilesDir(""),"hotfix.dex"));
-        HookUtil.hookAMS(this);
+//        HookUtil.hookAMS(this);
 //        HookUtil.hookHandler();
-//        hookInstrumentation();
+        hookInstrumentation();
     }
     private void loge(Object message){
         Log.e(TAG,"---"+message);
