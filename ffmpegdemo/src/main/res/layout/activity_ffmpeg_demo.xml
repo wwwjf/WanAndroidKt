@@ -7,10 +7,19 @@
     android:orientation="vertical"
     tools:context=".FFmpegDemoActivity">
 
-    <TextView
-        android:id="@+id/tv_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <SurfaceView
+        android:id="@+id/surfaceView_activity_ffmpeg"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:text="暂停"
+        android:onClick="pause"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:text="播放"
+        android:onClick="play"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

@@ -1,7 +1,7 @@
-#include "jni.h"
+#include <jni.h>
 #include <string>
 #include <unistd.h>
-
+#include "media/player/def_player/player.h"
 
 extern "C"
 JNIEXPORT
@@ -45,5 +45,26 @@ Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_ffmpegInfo(JNIEnv *env, jobject  /*
     }*/
 
     return env->NewStringUTF(c_temp);
+}
+}
+extern "C" {
+    JNIEXPORT jint JNICALL
+    Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_createPlayer(JNIEnv *env, jobject thiz, jstring path,
+                                                          jobject surface) {
+        auto *player = new Player(env, path, surface);
+        return (jint) player;
+}
+JNIEXPORT void JNICALL
+Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_play(JNIEnv *env, jobject thiz, jint player) {
+
+    auto *p = (Player *) player;
+    p->play();
+
+}
+JNIEXPORT void JNICALL
+Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_pause(JNIEnv *env, jobject thiz, jint player) {
+
+    auto *p = (Player *) player;
+    p->pause();
 }
 }
