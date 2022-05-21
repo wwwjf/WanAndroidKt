@@ -13,7 +13,6 @@
 #include "decode_state.h"
 #include "i_decode_state_cb.h"
 #include "../../utils/logger.h"
-#include "../../utils/timer.c"
 
 extern "C" {
 #include <libavcodec/avcodec.h>

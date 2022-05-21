@@ -4,6 +4,8 @@
 
 #include "base_decoder.h"
 
+#include "../../utils/timer.c"
+
 BaseDecoder::BaseDecoder(JNIEnv *env, jstring path, bool for_synthesizer)
         : m_for_synthesizer(for_synthesizer) {
     Init(env, path);
