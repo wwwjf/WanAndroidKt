@@ -6,9 +6,9 @@ import android.os.Environment
 import android.util.Log
 import android.view.Surface
 import android.view.View
-import com.cxp.learningvideo.media.DefDecoderStateListener
-import com.cxp.learningvideo.media.encoder.DefEncodeStateListener
-import com.cxp.learningvideo.media.encoder.VideoEncoder
+import com.wwwjf.videodemo.media.DefDecoderStateListener
+import com.wwwjf.videodemo.media.encoder.DefEncodeStateListener
+import com.wwwjf.videodemo.media.encoder.VideoEncoder
 import com.wwwjf.base.utils.DateUtil
 import com.wwwjf.videodemo.databinding.ActivitySynthesizerBinding
 import com.wwwjf.videodemo.media.BaseDecoder
@@ -21,7 +21,6 @@ import com.wwwjf.videodemo.media.encoder.AudioEncoder
 import com.wwwjf.videodemo.media.encoder.BaseEncoder
 import com.wwwjf.videodemo.media.muxer.MMuxer
 import com.wwwjf.videodemo.opengl.drawer.SoulVideoDrawer
-import com.wwwjf.videodemo.opengl.drawer.VideoDrawer
 import com.wwwjf.videodemo.opengl.egl.CustomerGLRenderer
 import java.util.concurrent.Executors
 

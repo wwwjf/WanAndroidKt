@@ -1,4 +1,4 @@
-package com.cxp.learningvideo.media.encoder
+package com.wwwjf.videodemo.media.encoder
 
 import com.wwwjf.videodemo.media.encoder.BaseEncoder
 import com.wwwjf.videodemo.media.encoder.IEncodeStateListener
