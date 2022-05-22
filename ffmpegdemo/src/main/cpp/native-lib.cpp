@@ -2,6 +2,7 @@
 #include <string>
 #include <unistd.h>
 #include "media/player/def_player/player.h"
+#include "media/player/gl_player/gl_player.h"
 
 extern "C"
 JNIEXPORT
@@ -49,22 +50,51 @@ Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_ffmpegInfo(JNIEnv *env, jobject  /*
 }
 extern "C" {
     JNIEXPORT jint JNICALL
-    Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_createPlayer(JNIEnv *env, jobject thiz, jstring path,
+    Java_com_wwwjf_ffmpegdemo_PlayerActivity_createPlayer(JNIEnv *env, jobject thiz, jstring path,
                                                           jobject surface) {
         auto *player = new Player(env, path, surface);
         return (jint) player;
 }
 JNIEXPORT void JNICALL
-Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_play(JNIEnv *env, jobject thiz, jint player) {
+Java_com_wwwjf_ffmpegdemo_PlayerActivity_play(JNIEnv *env, jobject thiz, jint player) {
 
     auto *p = (Player *) player;
     p->play();
 
 }
 JNIEXPORT void JNICALL
-Java_com_wwwjf_ffmpegdemo_FFmpegDemoActivity_pause(JNIEnv *env, jobject thiz, jint player) {
+Java_com_wwwjf_ffmpegdemo_PlayerActivity_pause(JNIEnv *env, jobject thiz, jint player) {
 
     auto *p = (Player *) player;
     p->pause();
 }
+    JNIEXPORT void JNICALL
+    Java_com_wwwjf_ffmpegdemo_PlayerActivity_stop(JNIEnv *env, jobject thiz, jint player) {
+
+        auto *p = (Player *) player;
+        p->stop();
+    }
+
+    JNIEXPORT jint JNICALL
+    Java_com_wwwjf_ffmpegdemo_OpenGLPlayerActivity_createGLPlayer(JNIEnv *env, jobject thiz,
+                                                                  jstring path, jobject surface) {
+
+        GLPlayer *player = new GLPlayer(env, path);
+        player->SetSurface(surface);
+        return (jint) player;
+    }
+    JNIEXPORT void JNICALL
+    Java_com_wwwjf_ffmpegdemo_OpenGLPlayerActivity_playOrPause(JNIEnv *env, jobject thiz,
+                                                                  jint player) {
+
+        GLPlayer *p = (GLPlayer *) player;
+        p->PlayOrPause();
+    }
+    JNIEXPORT void JNICALL
+    Java_com_wwwjf_ffmpegdemo_OpenGLPlayerActivity_stop(JNIEnv *env, jobject thiz,
+                                                                  jint player) {
+
+        GLPlayer *p = (GLPlayer *) player;
+        p->Release();
+    }
 }

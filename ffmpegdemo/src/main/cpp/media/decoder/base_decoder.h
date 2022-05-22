@@ -9,10 +9,9 @@
 #include <jni.h>
 #include <string>
 #include <thread>
+#include "../../utils/logger.h"
 #include "i_decoder.h"
 #include "decode_state.h"
-#include "i_decode_state_cb.h"
-#include "../../utils/logger.h"
 
 extern "C" {
 #include <libavcodec/avcodec.h>
@@ -163,7 +162,7 @@ public:
 
     long GetCurPos() override;
 
-    void SetStateReceiver(IDecodeStateCb *cb)  {
+    void SetStateReceiver(IDecodeStateCb *cb) override {
         m_state_cb = cb;
     }
 

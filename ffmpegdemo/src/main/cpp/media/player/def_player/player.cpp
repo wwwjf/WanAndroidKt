@@ -34,3 +34,10 @@ void Player::pause() {
         m_a_decoder->Pause();
     }
 }
+
+void Player::stop() {
+    if (m_v_decoder != nullptr) {
+        m_v_decoder->Stop();
+        m_a_decoder->Stop();
+    }
+}

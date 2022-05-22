@@ -89,6 +89,7 @@ add_library( # Sets the name of the library.
 
         # 播放器
         ${CMAKE_SOURCE_DIR}/media/player/def_player/player.cpp
+        ${CMAKE_SOURCE_DIR}/media/player/gl_player/gl_player.cpp
 
         # 解码器
         ${CMAKE_SOURCE_DIR}/media/one_frame.h
@@ -99,11 +100,31 @@ add_library( # Sets the name of the library.
         ${CMAKE_SOURCE_DIR}/media/decoder/video/v_decoder.cpp
         ${CMAKE_SOURCE_DIR}/media/decoder/audio/a_decoder.cpp
 
+        ${CMAKE_SOURCE_DIR}/media/const.h
+
         # 渲染器
         ${CMAKE_SOURCE_DIR}/media/render/video/video_render.h
         ${CMAKE_SOURCE_DIR}/media/render/audio/audio_render.h
         ${CMAKE_SOURCE_DIR}/media/render/audio/opensl_render.cpp
         ${CMAKE_SOURCE_DIR}/media/render/video/native_render/native_render.cpp
+        ${CMAKE_SOURCE_DIR}/media/render/video/opengl_render/opengl_render.cpp
+
+        ${CMAKE_SOURCE_DIR}/media/render/audio/audio_render.h
+        ${CMAKE_SOURCE_DIR}/media/render/audio/opensl_render.cpp
+        ${CMAKE_SOURCE_DIR}/media/render/video/opengl_render/opengl_pixel_receiver.h
+
+        # OpenGL EGL核心
+        ${CMAKE_SOURCE_DIR}/opengl/egl/egl_core.cpp
+        ${CMAKE_SOURCE_DIR}/opengl/egl/egl_surface.cpp
+
+        # OpenGL绘制器
+        ${CMAKE_SOURCE_DIR}/opengl/drawer/drawer.cpp
+        ${CMAKE_SOURCE_DIR}/opengl/drawer/video_drawer.cpp
+
+        # OpenGL绘制代理器
+        ${CMAKE_SOURCE_DIR}/opengl/drawer/proxy/drawer_proxy.cpp
+        ${CMAKE_SOURCE_DIR}/opengl/drawer/proxy/def_drawer_proxy_impl.cpp
+
 
         )
 

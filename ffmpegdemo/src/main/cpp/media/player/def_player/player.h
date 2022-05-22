@@ -27,6 +27,7 @@ public:
 
     void play();
     void pause();
+    void stop();
 };
 
 #endif //WANANDROIDKT_PLAYER_H

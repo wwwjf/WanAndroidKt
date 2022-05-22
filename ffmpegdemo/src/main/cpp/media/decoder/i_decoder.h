@@ -5,6 +5,8 @@
 #ifndef WANANDROIDKT_I_DECODER_H
 #define WANANDROIDKT_I_DECODER_H
 
+#include "i_decode_state_cb.h"
+
 class IDecoder {
 public:
     virtual void GoOn() = 0;
@@ -13,6 +15,7 @@ public:
     virtual bool IsRunning() = 0;
     virtual long GetDuration() = 0;
     virtual long GetCurPos() = 0;
+    virtual void SetStateReceiver(IDecodeStateCb *cb) = 0;
 };
 
 #endif //WANANDROIDKT_I_DECODER_H

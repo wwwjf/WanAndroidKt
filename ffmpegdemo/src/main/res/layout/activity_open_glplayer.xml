@@ -5,16 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".FFmpegDemoActivity">
+    tools:context=".OpenGLPlayerActivity">
+    <SurfaceView
+        android:id="@+id/surfaceView_activity_opengl"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"/>
 
     <Button
-        android:layout_width="match_parent"
-        android:text="播放器"
-        android:onClick="player"
+        android:layout_width="wrap_content"
+        android:text="暂停"
+        android:onClick="playOrPause"
         android:layout_height="wrap_content"/>
     <Button
-        android:layout_width="match_parent"
-        android:text="OpenGL播放器"
-        android:onClick="openglPlayer"
+        android:layout_width="wrap_content"
+        android:text="播放"
+        android:onClick="playOrPause"
         android:layout_height="wrap_content"/>
+
 </LinearLayout>
