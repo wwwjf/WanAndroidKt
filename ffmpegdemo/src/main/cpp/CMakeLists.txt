@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.4.1)
 # 设置生成的so动态库最后输出的路径
  set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/../../../libs/${ANDROID_ABI})
 
+
 # 支持C++11标准和GNU扩展特性
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
@@ -62,6 +63,18 @@ set_target_properties( avdevice
         PROPERTIES IMPORTED_LOCATION
         ${ffmpeg_lib_dir}/libavdevice.so )
 
+add_library( h264
+        SHARED
+        IMPORTED)
+set_target_properties( h264
+        PROPERTIES IMPORTED_LOCATION
+        ${ffmpeg_lib_dir}/libh264.so )
+add_library( postproc
+        SHARED
+        IMPORTED)
+set_target_properties( postproc
+        PROPERTIES IMPORTED_LOCATION
+        ${ffmpeg_lib_dir}/libpostproc.so )
 
 include_directories(${ffmpeg_head_dir}/include)
 
@@ -95,17 +108,29 @@ add_library( # Sets the name of the library.
         ${CMAKE_SOURCE_DIR}/media/one_frame.h
         ${CMAKE_SOURCE_DIR}/media/decoder/i_decoder.h
         ${CMAKE_SOURCE_DIR}/media/decoder/decode_state.h
-        ${CMAKE_SOURCE_DIR}/media/decoder/base_decoder.cpp
         ${CMAKE_SOURCE_DIR}/media/decoder/i_decode_state_cb.cpp
+        ${CMAKE_SOURCE_DIR}/media/decoder/base_decoder.cpp
         ${CMAKE_SOURCE_DIR}/media/decoder/video/v_decoder.cpp
         ${CMAKE_SOURCE_DIR}/media/decoder/audio/a_decoder.cpp
 
+        # 编码器
+        ${CMAKE_SOURCE_DIR}/media/encoder/i_encoder.h
+        ${CMAKE_SOURCE_DIR}/media/encoder/base_encoder.cpp
+        ${CMAKE_SOURCE_DIR}/media/encoder/i_encode_state_cb.h
+        ${CMAKE_SOURCE_DIR}/media/encoder/video/v_encoder.cpp
+        ${CMAKE_SOURCE_DIR}/media/encoder/audio/a_encoder.cpp
+
         ${CMAKE_SOURCE_DIR}/media/const.h
+
+
+        # 打包器
+        ${CMAKE_SOURCE_DIR}/media/muxer/ff_repack.cpp
+
+        ${CMAKE_SOURCE_DIR}/media/muxer/mp4_muxer.cpp
+        ${CMAKE_SOURCE_DIR}/media/muxer/i_muxer_cb.h
 
         # 渲染器
         ${CMAKE_SOURCE_DIR}/media/render/video/video_render.h
-        ${CMAKE_SOURCE_DIR}/media/render/audio/audio_render.h
-        ${CMAKE_SOURCE_DIR}/media/render/audio/opensl_render.cpp
         ${CMAKE_SOURCE_DIR}/media/render/video/native_render/native_render.cpp
         ${CMAKE_SOURCE_DIR}/media/render/video/opengl_render/opengl_render.cpp
 
@@ -125,8 +150,9 @@ add_library( # Sets the name of the library.
         ${CMAKE_SOURCE_DIR}/opengl/drawer/proxy/drawer_proxy.cpp
         ${CMAKE_SOURCE_DIR}/opengl/drawer/proxy/def_drawer_proxy_impl.cpp
 
-
-        )
+        #合成器
+        ${CMAKE_SOURCE_DIR}/media/synthesizer/synthesizer.cpp
+)
 
 # 指定编译目标库时，cmake要链接的库
 target_link_libraries(
@@ -135,18 +161,18 @@ target_link_libraries(
         native-lib
 
         # 4. 连接 FFmpeg 相关的库
-        avformat
         avutil
         swresample
         avcodec
         avfilter
         swscale
+        avformat
         avdevice
+        h264
+        postproc
 
         -landroid
-        # 打开opensl es支持
         OpenSLES
-
         -lEGL
         -lGLESv2
         # Links the target library to the log library

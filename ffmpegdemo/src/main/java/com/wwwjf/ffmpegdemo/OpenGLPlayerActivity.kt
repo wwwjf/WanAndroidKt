@@ -37,7 +37,7 @@ class OpenGLPlayerActivity : AppCompatActivity() {
     }
 
     private fun playerVideo(holder: SurfaceHolder) {
-        val path = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/8a554b2ce6a3d0ee34d534602429885d.mp4"
+        val path = "${Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).absolutePath}/Camera/8a554b2ce6a3d0ee34d534602429885d_repack.mp4"
         player = createGLPlayer(path, holder.surface)
         player?.let {
             playOrPause(it)

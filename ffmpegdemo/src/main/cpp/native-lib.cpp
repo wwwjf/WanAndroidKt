@@ -3,7 +3,8 @@
 #include <unistd.h>
 #include "media/player/def_player/player.h"
 #include "media/player/gl_player/gl_player.h"
-
+#include "media/muxer/ff_repack.h"
+#include "media/synthesizer/synthesizer.h"
 extern "C"
 JNIEXPORT
 jstring JNICALL
@@ -96,5 +97,34 @@ Java_com_wwwjf_ffmpegdemo_PlayerActivity_pause(JNIEnv *env, jobject thiz, jint p
 
         GLPlayer *p = (GLPlayer *) player;
         p->Release();
+    }
+    JNIEXPORT jint JNICALL
+    Java_com_wwwjf_ffmpegdemo_RepackActivity_createRepack(JNIEnv *env, jobject thiz, jstring src_path,
+                                                          jstring dest_path) {
+        FFRepack *repack = new FFRepack(env, src_path, dest_path);
+        return (jint) repack;
+    }
+    JNIEXPORT void JNICALL
+    Java_com_wwwjf_ffmpegdemo_RepackActivity_startRepack(JNIEnv *env, jobject thiz, jint repack) {
+        FFRepack *ffRepack = (FFRepack *) repack;
+        ffRepack->Start();
+    }
+
+    JNIEXPORT jint JNICALL
+    Java_com_wwwjf_ffmpegdemo_FFEncodeActivity_initEncoder(JNIEnv *env, jobject thiz, jstring inPath, jstring outPath) {
+        Synthesizer *synthesizer = new Synthesizer(env, inPath, outPath);
+        return (jint)synthesizer;
+    }
+
+    JNIEXPORT void JNICALL
+    Java_com_wwwjf_ffmpegdemo_FFEncodeActivity_startEncoder(JNIEnv *env, jobject thiz, jint synthesizer) {
+        Synthesizer *s =  (Synthesizer *)synthesizer;
+        s->Start();
+    }
+
+    JNIEXPORT void JNICALL
+    Java_com_wwwjf_ffmpegdemo_FFEncodeActivity_releaseEncoder(JNIEnv *env, jobject thiz, jint synthesizer) {
+        Synthesizer *s =  (Synthesizer *)synthesizer;
+        delete s;
     }
 }

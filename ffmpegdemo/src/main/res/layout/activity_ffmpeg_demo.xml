@@ -17,4 +17,14 @@
         android:text="OpenGL播放器"
         android:onClick="openglPlayer"
         android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:text="重新打包"
+        android:onClick="repack"
+        android:layout_height="wrap_content"/>
+    <Button
+        android:layout_width="match_parent"
+        android:text="编码"
+        android:onClick="encode"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

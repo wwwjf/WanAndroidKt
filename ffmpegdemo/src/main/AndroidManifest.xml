@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAndroidKt">
+        <activity android:name=".FFEncodeActivity"/>
+        <activity android:name=".RepackActivity"/>
         <activity android:name=".FFmpegDemoActivity"/>
         <activity android:name=".PlayerActivity"/>
         <activity android:name=".OpenGLPlayerActivity"/>

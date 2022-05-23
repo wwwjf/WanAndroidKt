@@ -66,6 +66,12 @@ class FFmpegDemoActivity : AppCompatActivity() {
     fun openglPlayer(view: View) {
         startActivity(Intent(this,OpenGLPlayerActivity::class.java))
     }
+    fun repack(view: View) {
+        startActivity(Intent(this,RepackActivity::class.java))
+    }
+    fun encode(view: View) {
+        startActivity(Intent(this,FFEncodeActivity::class.java))
+    }
 
     private external fun helloFromJNI():String
 
