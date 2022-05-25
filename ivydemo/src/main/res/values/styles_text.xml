@@ -1,0 +1,22 @@
+<resources>
+
+    <style name="Text13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Text14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="Text17">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="Text17.999999">
+        <item name="android:textColor">@color/color_999999</item>
+        <item name="android:textSize">17dp</item>
+    </style>
+
+</resources>

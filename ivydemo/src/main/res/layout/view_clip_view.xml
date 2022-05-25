@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/fl_view_clip_rootView"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp">
+
+        <View
+            android:id="@+id/view_clip_view_left_movie_bg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/transparent_60" />
+
+        <View
+            android:id="@+id/view_clip_view_right_movie_bg"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@color/transparent_60" />
+    </FrameLayout>
+        <RelativeLayout
+            android:id="@+id/rl_clip_view_clip_layout"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_gravity="bottom"
+            android:background="@color/transparent">
+
+            <TextView
+                android:id="@+id/tv_clip_view_clip_time"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="17dp" />
+
+            <View
+                android:id="@+id/view_clip_view_left_clip"
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:background="@mipmap/clip_left_icon" />
+
+            <View
+                android:id="@+id/view_clip_view_right_clip"
+                android:layout_width="18dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:background="@mipmap/clip_right_icon" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_toStartOf="@id/view_clip_view_right_clip"
+                android:layout_toLeftOf="@id/view_clip_view_right_clip"
+                android:layout_toEndOf="@id/view_clip_view_left_clip"
+                android:layout_toRightOf="@id/view_clip_view_left_clip"
+                android:background="@color/red_color_FF4855" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:layout_toStartOf="@id/view_clip_view_right_clip"
+                android:layout_toLeftOf="@id/view_clip_view_right_clip"
+                android:layout_toEndOf="@id/view_clip_view_left_clip"
+                android:layout_toRightOf="@id/view_clip_view_left_clip"
+                android:background="@color/red_color_FF4855" />
+        </RelativeLayout>
+</FrameLayout>

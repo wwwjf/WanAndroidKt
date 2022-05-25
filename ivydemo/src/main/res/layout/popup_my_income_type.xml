@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp_8"
+    android:paddingEnd="@dimen/dp_8">
+
+    <ImageView
+        android:layout_width="@dimen/dp_20"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginTop="-30dp"
+        android:scaleX="0.5"
+        android:src="@drawable/shape_rectangle_ffffff_triangle_up" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_soild_fffff_c6dp"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/dp_8"
+        android:paddingRight="@dimen/dp_8">
+
+        <TextView
+            android:id="@+id/tv_popup_my_income_withdraw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/dp_14"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_40"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_40"
+            android:text="提现"
+            android:textColor="@color/color_999999"
+            android:textSize="12dp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/color_E8E8E8"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_popup_my_income_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:drawablePadding="@dimen/dp_14"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/dp_40"
+            android:paddingTop="@dimen/dp_8"
+            android:paddingBottom="@dimen/dp_8"
+            android:paddingEnd="@dimen/dp_40"
+            android:text="全部"
+            android:textColor="@color/color_999999"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

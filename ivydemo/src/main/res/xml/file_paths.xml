@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <external-path name="my_video" path="xh_recorder/"/>
+    <external-path name="my_image" path="xh_recorder/"/>
+    <files-path name="my_file_video" path="xh_recorder/" />
+
+    <external-path name="videoCall_record" path="xh_recorder/videoCall_record"/>
+    <files-path name="videoCall_record" path="xh_recorder/videoCall_record" />
+
+    <external-path name="video" path="TXUGC/"/>
+    <external-path name="local_video" path="/"/>
+    <files-path name="local_file_video" path="/" />
+
+    <!-- mp3 record -->
+    <external-path name="my_audio_record" path="xh_recorder/audio"/>
+    <files-path name="my_file_audio_record" path="xh_recorder/audio" />
+
+    <!-- mp3 download -->
+    <external-path name="my_audio_download" path="download/music"/>
+    <files-path name="my_file_audio_download" path="download/music" />
+
+    <external-path name="my_stock_pic_download" path="download/"/>
+    <files-path name="my_file_stock_pic_download" path="download/" />
+
+    <!-- localMedia -->
+    <!--<root-path path="" name="localMedia" />-->
+
+
+    <!-- spofix -->
+    <external-path
+        name="ivy_apk"
+        path="download/apk"/>
+    <files-path
+        name="ivy_apk"
+        path="download/apk"/>
+
+
+</paths>

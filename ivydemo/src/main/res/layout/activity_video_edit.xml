@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".ui.module.videoedit.VideoEditActivity">
+
+    <SurfaceView
+        android:id="@+id/ve_surfaceview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--  ##########  title  start  ############  -->
+    <ImageView
+        android:id="@+id/ve_iv_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="14dp"
+        android:background="@drawable/selector_ic_ve_back_def_press"
+        android:clickable="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/ve_tv_push"
+        android:layout_width="80dp"
+        android:layout_height="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@drawable/selector_red_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:text="@string/common_next"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/ve_iv_back"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ve_iv_back" />
+
+    <ImageView
+        android:id="@+id/ve_iv_record"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="31dp"
+        android:background="@drawable/selector_ic_ve_record_def_press"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@id/ve_iv_back"
+        app:layout_constraintRight_toLeftOf="@id/ve_tv_push"
+        app:layout_constraintTop_toTopOf="@id/ve_iv_back" />
+
+    <ImageView
+        android:id="@+id/ve_iv_music"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/selector_ic_ve_music_def_press"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="@id/ve_iv_back"
+        app:layout_constraintRight_toLeftOf="@id/ve_iv_record"
+        app:layout_constraintTop_toTopOf="@id/ve_iv_back" />
+
+    <ImageView
+        android:id="@+id/ve_iv_sound"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/selector_ic_ve_sound_def_press"
+        android:clickable="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/ve_iv_back"
+        app:layout_constraintRight_toLeftOf="@id/ve_iv_music"
+        app:layout_constraintTop_toTopOf="@id/ve_iv_back" />
+
+    <TextView
+        app:layout_constraintBottom_toBottomOf="@id/ve_iv_back"
+        app:layout_constraintRight_toLeftOf="@id/ve_iv_sound"
+        app:layout_constraintTop_toTopOf="@id/ve_iv_back"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:id="@+id/ve_activity_save_cache"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_white_bg"
+        android:paddingLeft="16dp"
+        android:paddingTop="6dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="6dp"
+        android:text="@string/video_push_cache"
+        android:textColor="#ffffff"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/ve_tv_music_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="500dp"
+        android:ellipsize="marquee"
+        android:gravity="right"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toBottomOf="@id/ve_iv_back"
+        app:layout_constraintLeft_toRightOf="@id/ve_iv_back"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ve_iv_back"
+        tools:text="title" />
+    <!--  ##########  title  end  ############  -->
+
+    <!--  视频删减控件  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_activity_shoot_recyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <!--  裁剪控件  -->
+        <FrameLayout
+            android:id="@+id/video_edit_music"
+            android:layout_width="match_parent"
+            android:layout_height="86dp"
+            android:layout_marginLeft="65dp"
+            android:layout_marginRight="65dp"
+            android:layout_marginBottom="14dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:visibility="visible">
+            <!--截图部分-->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="66dp"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="18dp">
+
+                <com.xianghe.ivy.weight.scrollview.ObservableScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/layout_scrollview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="false"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+
+                </com.xianghe.ivy.weight.scrollview.ObservableScrollView>
+
+                <View
+                    android:id="@+id/view_activity_preview_movie_left_movie_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/transparent_60" />
+
+                <View
+                    android:id="@+id/view_activity_preview_movie_right_movie_bg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:background="@color/transparent_60" />
+            </FrameLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_preview_movie_clip_layout"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:layout_gravity="bottom"
+                android:background="@color/transparent">
+
+                <TextView
+                    android:id="@+id/tv_preview_movie_clip_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:visibility="gone"
+                    tools:text="sssssss"
+                    tools:visibility="visible" />
+
+                <View
+                    android:id="@+id/view_activity_preview_movie_left_clip"
+                    android:layout_width="18dp"
+                    android:layout_height="match_parent"
+                    android:background="@mipmap/clip_left_icon" />
+
+                <View
+                    android:id="@+id/view_activity_preview_movie_right_clip"
+                    android:layout_width="18dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@mipmap/clip_right_icon" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_toStartOf="@id/view_activity_preview_movie_right_clip"
+                    android:layout_toLeftOf="@id/view_activity_preview_movie_right_clip"
+                    android:layout_toEndOf="@id/view_activity_preview_movie_left_clip"
+                    android:layout_toRightOf="@id/view_activity_preview_movie_left_clip"
+                    android:background="@color/red_color_FF4855" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toStartOf="@id/view_activity_preview_movie_right_clip"
+                    android:layout_toLeftOf="@id/view_activity_preview_movie_right_clip"
+                    android:layout_toEndOf="@id/view_activity_preview_movie_left_clip"
+                    android:layout_toRightOf="@id/view_activity_preview_movie_left_clip"
+                    android:background="@color/red_color_FF4855" />
+            </RelativeLayout>
+        </FrameLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_activity_view_edit_style"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+    </LinearLayout>
+
+
+    <com.xianghe.ivy.ui.module.videoedit.music_select.VideoEditMusicShowView
+        android:id="@+id/ll_activity_view_edit_music"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:visibility="visible" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

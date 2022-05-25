@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?><!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"--><!--xmlns:app="http://schemas.android.com/apk/res-auto"--><!--android:layout_width="match_parent"--><!--android:layout_height="match_parent">-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent_70"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <RelativeLayout
+        android:id="@+id/ll_search_layout"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="40dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/tv_search_cancel"
+            android:textColor="#ffffff"
+            android:textSize="16dp"
+            android:text="@string/common_cancel"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <EditText
+            android:id="@+id/et_video_edit_search"
+            style="@style/EditTextBase.search.null"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_toLeftOf="@id/tv_search_cancel"
+            android:background="@drawable/shape_rectangle_stoke_ffffff_c20dp"
+            android:hint="@string/edit_video_search_music_hint"
+            android:imeOptions="actionSearch|flagNoFullscreen"
+            android:singleLine="true"
+            android:textColor="@color/white"/>
+            <ImageView
+                android:id="@+id/iv_icon_search"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_alignRight="@id/et_video_edit_search"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_search_pressed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/ve_music_select_tabla"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/video_player_control_layout_btn_padding"
+        app:layout_constraintTop_toBottomOf="@+id/ll_search_layout"
+        app:tabGravity="center"
+        app:tabIndicatorColor="@android:color/white"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextAppearance="@style/Text17.999999" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/ve_music_select_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ve_music_select_tabla"
+        app:layout_constraintVertical_weight="1" />
+    <FrameLayout
+        android:id="@+id/fl_search_music_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ve_music_select_tabla"
+        app:layout_constraintVertical_weight="1" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--</FrameLayout>-->
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="13dp"
+    android:paddingEnd="0dp"
+    android:paddingTop="13dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_item_user_movie_dynamic_avatar"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_my_head_default" />
+
+    <TextView
+        android:id="@+id/tv_item_user_dynamic_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/iv_item_user_movie_dynamic_avatar"
+        android:layout_toStartOf="@id/iv_item_user_dynamic_cover"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="#fff"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tv_item_user_dynamic_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_item_user_dynamic_nickname"
+        android:layout_alignStart="@+id/tv_item_user_dynamic_nickname"
+        android:layout_marginTop="3dp"
+        android:textColor="@color/white_color_999999"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/tv_item_user_dynamic_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_item_user_dynamic_type"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@+id/tv_item_user_dynamic_type"
+        android:lines="1"
+        android:maxLines="1"
+        android:text="2018-01-01 00:00"
+        android:textColor="@color/white_color_999999"
+        android:textSize="12dp" />
+
+    <TextView
+        android:id="@+id/tv_item_user_dynamic_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_item_user_dynamic_type"
+        android:layout_alignStart="@+id/tv_item_user_dynamic_type"
+        android:layout_marginTop="5dp"
+        android:layout_toStartOf="@id/iv_item_user_dynamic_cover"
+        android:textColor="#ffffff"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:id="@+id/iv_item_user_dynamic_cover"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="13dp"
+        android:background="@color/black_color_1e1e28"
+        android:scaleType="centerCrop" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/tv_item_user_dynamic_comment"
+        android:layout_alignStart="@+id/iv_item_user_movie_dynamic_avatar"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#585861" />
+
+</RelativeLayout>

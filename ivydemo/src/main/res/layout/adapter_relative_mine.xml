@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_color_282834"
+    android:paddingLeft="16dp"
+    android:paddingTop="13dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="13dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView_user_adapter_relative_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="5dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_my_head_default" />
+
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_friendName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/imageView_user_adapter_relative_avatar"
+        android:text="name"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_friendIvyId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_user_adapter_relative_friendName"
+        android:layout_alignStart="@+id/textView_user_adapter_relative_friendName"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/imageView_user_adapter_relative_avatar"
+        android:text="0"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+
+</RelativeLayout>

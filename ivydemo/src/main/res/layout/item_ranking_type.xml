@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tv_text"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="5dp"
+    android:background="@drawable/item_ranking_type_background"
+    android:text="12 月份"
+    android:textColor="@color/item_ranking_type_text_color"
+    android:textSize="@dimen/text_size_normal" />

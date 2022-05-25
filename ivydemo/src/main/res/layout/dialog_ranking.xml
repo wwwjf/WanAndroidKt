@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="40dp"
+    android:paddingBottom="10dp">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/layout_bangdan"
+        android:layout_width="560dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:clickable="true"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/dialog_ranking_type_layout_background">
+
+                    <LinearLayout
+                        android:id="@+id/layout_ranking_type_week"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/dialog_ranking_type_left_background"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_ranking_type_week"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="本周榜单"
+                            android:textColor="@color/ranking_type_text_color"
+                            android:textSize="@dimen/text_size_big" />
+
+                        <ImageView
+                            android:id="@+id/btn_ranking_type_week"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="5dp"
+                            android:padding="3dp"
+                            android:src="@drawable/dialog_ranking_type_arr_drawable" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_ranking_type_month"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/dialog_ranking_type_right_background"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_ranking_type_month"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="本月榜单"
+                            android:textColor="@color/ranking_type_text_color"
+                            android:textSize="@dimen/text_size_big" />
+
+                        <ImageView
+                            android:id="@+id/btn_ranking_type_month"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center_vertical|right"
+                            android:layout_marginRight="5dp"
+                            android:padding="3dp"
+                            android:src="@drawable/dialog_ranking_type_arr_drawable" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btn_join"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|right"
+                    android:background="@drawable/dialog_ranking_join"
+                    android:paddingLeft="16dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="参与活动    >"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_small" />
+            </FrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/view_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:padding="10dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 这里 宽高 和 文字偏移 写得有点丑陋不敢惹怒大佬, 美工大佬在下帅锅啦 -->
+    <TextView
+        android:layout_width="224dp"
+        android:layout_height="41.5dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@mipmap/pic_tiebg"
+        android:elevation="10dp"
+        android:gravity="center_horizontal"
+        android:paddingTop="2dp"
+        android:text="达人榜单"
+        android:textColor="@color/text_color_white"
+        android:textSize="@dimen/text_size_large"
+        app:layout_anchor="@id/layout_bangdan"
+        app:layout_anchorGravity="center_horizontal" />
+</androidx.constraintlayout.widget.ConstraintLayout>

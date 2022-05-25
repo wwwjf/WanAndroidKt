@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF282834</color>
+    <color name="colorPrimaryDark">#FF1E1E28</color>
+    <color name="colorAccent">@color/red</color>
+    <!--<color name="colorAccent">#D81B60</color>-->
+
+    <!-- 规范常用的 文字颜色 -->
+    <color name="text_color_white">#FFFFFFFF</color>
+    <color name="text_color_gray">#FF999999</color>
+    <color name="text_color_black">#FF333333</color>
+
+    <!-- 默认水波纹效果颜色 -->
+    <color name="ripple_color">#B3FFFFFF</color>
+    <color name="red">#FFFF4855</color>
+
+    <!--录制-->
+    <color name="white_66ffffff">#66ffffff</color>
+    <color name="white_f2f2f2">#f2f2f2</color>
+    <color name="red_color_FF4855">#FF4855</color>
+    <color name="red_color_FF8C88">#FF8C88</color>
+    <color name="red_color_FF5C5A">#ff5c5a</color>
+    <color name="white_color_999999">#999999</color>
+    <color name="black_color_000000">#000000</color>
+    <color name="black_color_33000000">#33000000</color>
+    <color name="black_color_333333">#333333</color>
+    <color name="black_color_393945">#393945</color>
+    <color name="black_color_282834">#282834</color>
+    <color name="black_color_23233b">#23233b</color>
+    <color name="black_color_1e1e28">#1e1e28</color>
+    <color name="black_color_2e2e38">#2e2e38</color>
+    <color name="black_color_8c91a9">#8c91a9</color>
+    <color name="black_color_484852">#484852</color>
+    <color name="black_color_AAAAAA">#AAAAAA</color>
+    <color name="black_color_4a4a59">#4a4a59</color>
+    <color name="blue_color_007AFF">#007AFF</color>
+    <color name="red_color_001E25">#FF4855</color>
+    <color name="color_4DFFFFFF">#4DFFFFFF</color>
+    <color name="color_E8E8E8">#E8E8E8</color>
+    <color name="white_color_33ffffff">#33ffffff</color>
+    <color name="white_color_7594FF">#7594FF</color>
+    <color name="white_color_9FA7D5">#9FA7D5 </color>
+
+
+    <color name="color_FF999999">#FF999999</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_666666">#666666</color>
+    <color name="color_eeeeee">#eeeeee</color>
+    <color name="color_39000000">#39000000</color>
+
+
+    <!--不同透明度的引用-->
+    <color name="transparent">#00000000</color>
+    <color name="transparent_88000000">#88000000</color>
+    <color name="transparent_6">#0F000000</color>
+    <color name="transparent_10">#1a000000</color>
+    <color name="transparent_15">#26000000</color>
+    <color name="transparent_20">#33000000</color>
+    <color name="transparent_30">#4d000000</color>
+    <color name="transparent_40">#66000000</color>
+    <color name="transparent_50">#80000000</color>
+    <color name="transparent_60">#9a000000</color>
+    <color name="transparent_70">#b3000000</color>
+    <color name="transparent_66">#66000000</color>
+    <color name="transparent_4c">#4c000000</color>
+    <color name="transparent_80">#80000000</color>
+    <color name="transparent_62">#66202020</color>
+    <color name="transparent_e6">#e6202020</color>
+    <color name="transparent_33">#33000000</color>
+    <color name="transparent_cc">#cc202020</color>
+    <color name="transparent_82">#80202020</color>
+    <color name="transparent_05">#50000000</color>
+
+    <color name="black">#000000</color>
+    <color name="black_6">#0F000000</color>
+    <color name="black_10">#1a000000</color>
+    <color name="black_15">#26000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_30">#4d000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_50">#80000000</color>
+    <color name="black_60">#9a000000</color>
+    <color name="black_70">#b3000000</color>
+    <color name="black_80">#cd000000</color>
+    <color name="black_85">#d8000000</color>
+    <color name="black_90">#e5000000</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="white_10">#1aFFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_30">#4dFFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+    <color name="white_50">#80FFFFFF</color>
+    <color name="white_60">#9affffff</color>
+    <color name="white_70">#b3ffffff</color>
+    <color name="white_80">#cdffffff</color>
+    <color name="color_123456">#00000000</color>
+    <color name="cream_color">#FFE7B5 </color>
+    <color name="color_B3282834">#B3282834</color>
+    <color name="color_C9AE79">#C9AE79</color>
+</resources>

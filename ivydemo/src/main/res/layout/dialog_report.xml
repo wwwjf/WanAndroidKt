@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp">
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="500dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingTop="10dp"
+        android:paddingRight="16dp"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="@dimen/dialog_report_title_btn_size"
+                android:layout_height="@dimen/dialog_report_title_btn_size" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/common_report_reason"
+                android:textColor="@color/text_color_black"
+                android:textSize="@dimen/text_size_big" />
+
+            <ImageView
+                android:id="@+id/btn_close"
+                android:layout_width="@dimen/dialog_report_title_btn_size"
+                android:layout_height="@dimen/dialog_report_title_btn_size"
+                android:padding="8dp"
+                android:src="@drawable/ic_close_selector" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/view_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <EditText
+            android:id="@+id/et_others"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:background="#99999999"
+            android:gravity="top"
+            android:hint="@string/dialog_report_others"
+            android:imeOptions="flagNoFullscreen"
+            android:padding="5dp"
+            android:textColor="@color/text_color_black"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/btn_submit"
+            style="@style/BtnRedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="64dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="64dp"
+            android:text="@string/common_submit"
+            android:textSize="@dimen/text_size_normal" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

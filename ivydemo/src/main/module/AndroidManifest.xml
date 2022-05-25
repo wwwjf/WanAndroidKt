@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.xianghe.ivy">
+
+    <uses-permission android:name="android.intent.action.MEDIA_SCANNER_SCAN_DIR" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission
+        android:name="android.permission.DEVICE_POWER"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- 硬件支持 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 用于写入缓存数据到扩展存储卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
+
+    <!-- 极光推送 Required  一些系统要求的权限，如访问网络等 -->
+    <!-- android:usesCleartextTraffic="true"  环新兼容9.0 -->
+    <application
+        android:name=".app.IvyApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/logo_icon"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/logo_icon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:allowBackup">
+
+
+        <!-- 7.0之后文件存储 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- 屏幕适配 circleProgress -->
+        <meta-data
+            android:name="circle_dialog_design_width"
+            android:value="1080" />
+        <meta-data
+            android:name="circle_dialog_design_height"
+            android:value="1920" />
+
+        <!-- umeng  start -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5bd2d774b465f5adee0000c0" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="dev" />
+        <!-- umeng  end -->
+
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="25596006" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="83865064ed4b825fd510753480a46352" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCManG95GOBvt6L6BGQh0fVI3dlPHpNmnRYKccVSuUXqKoR8YBAfl0tASCBt2CIQuDcY+m9oEd8sZYCOsSdsCvN99MyceFPOcBrrGrZhuOCrMoW3ZYyyuX8GKmVOZq1J/K7cI2y1N7syoPpWxRnrf0mDIXs2AXbwqG2MRs+CxY0xJmqRZlVXEMAI7W8whNWILQNwHvuRZf72bWcrzh6ZPoYyK0ZpP+qYAmx3/TIaXStoz6NnAh7OdR8JZkeBlO/f2CeDjeIC6cb8L6ZyRfl5zOoudZjyGQj6CiMUEB+nU0cK+Jh4Ri3bzejLLWX9V8Aq56Byn5LgWAKKTDCs4aapUuXAgMBAAECggEAKbg2s0T4i8Q6OzdogJixLxKqltmxPP13M/q1vA3Uo4LphQtMH91rscNz9RaXB+VXCiRlfoHwu4vIFkF/yZpeaYQIrCRJ3VA7a8J+vMLnNhxAryqHRfAjBRQOzteer9R+ulJmx4uX8KL7LopxNZzsajGuWQCWPQVHJurQPU7t+h8+hieOXfjWno59LANpIHx6ZfxrhW+oKmgJTNsqEePL2YzPpdLDPLqzHLaV0fyvj+ShCWHBO1r5z888R0eymiVhPgq82xjwpSxmQ8W761g+1KcYKE9BTsr8b4WCYv16YsB47viuli9Lx2mbpSO4/nmxB9pFnvnWkU0iDn6edYeKAQKBgQDSH6FS/PW8cpTPEI3hwZLm4XQ0y+b5gMnkDNuxotdV6+69pSsjbPo6HxAIiDm4dk5vd6kAA+nMrTssdsYm+I3rHPiugglbA6VE1a8ewLvl39zHHktPGEtr7dT43d66nE3xwlRguvr2aeTu+Dgdy8oDtQ6a5Jxrdi1bHaiav7xRcQKBgQCrEqkNsAXpvhUpoyap2eWWBy+mZmCLNM0Wfk7pvy4rrXlDJBbgCGpw0Sjedw5Ex8n2qIdnKb36NC/keBRKn4CPVSxSC2bm8JOv0xbSbQ4kLOnu4oZr8msn+LKT39opvZFtlJcO4IFFV7X1+E5sTNOEe2OStwvMQQ5NLtCxiF9phwKBgBOsUnZqqLdUIwqgCiiw7wge47ptvNpvbHelnIwtKuwogtnOtRNECMmYTu/9kSnsKbvWAES4GRPIxFmNZVAQxXjV5ZKxKh8TYE3pk9PVR8JmC025UGO/apBYXDBQ1aGzMLkJ8Mx9tTGNCJo3M0nW4rsmII/wB5UoI2b8h+S1PvSBAoGACZUfARRGEITEPLPV25fIA3Jdme2MJOANSOBEXVWHKY0rCLbBzUTLaYxdxLBYjUO/rWBdTUsKSDSaJisPv+pVUjIMLIBVAESjkSq60YioTSBy7h2kN/G5TODiZ+QXHVVwCvpSx9ONiivSlneVNP3Mr1QWDMbSE1vliC9CI1+nMIsCgYEAkVvO3o10M8fJE5GKBBrU/kFHbYcbeZNG5bZNjrPB0pMfkAbUevdhadoD0qVdqLkOk+iaSfEWc4JNkrrQfMul91sLxB8SS04Lz9zhtnnwaIRdcYXJDOC11Aud70yhPQDb5BAK/6mIhwV9OLt6o9jjznVwYXRSTYaIo2Rr04MyO2Y=" />
+
+        <!-- activity  start -->
+        <activity
+            android:name=".ui.module.welcom.XWLauncherActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:icon="@mipmap/logo_icon"
+            android:screenOrientation="sensorLandscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter> <!-- URL Scheme启动 -->
+                <!-- 必有项 -->
+                <action android:name="android.intent.action.VIEW" />
+                <!-- 创建桌面图标快捷方式 -->
+                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+                <!-- 如果希望该应用可以通过浏览器的连接启动，则添加该项 -->
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 表示该页面可以被隐式调用，必须加上该项 -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- 协议部分 -->
+                <!--
+                    <data
+                    android:host="i-weiying.com"
+                    android:scheme="ivy" />
+                -->
+                <data android:scheme="gxxxyw" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.module.main.mvp.view.activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/AppTheme.NoTitle" />
+        <!-- 全屏播放Activity除主页外的全屏播放 -->
+        <activity
+            android:name=".ui.module.player.PlayerOtherActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/AppTheme.NoTitle" />
+
+        <!-- 全屏播放Activity -->
+        <activity
+            android:name=".ui.module.player.PlayerActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/AppTheme.NoTitle" />
+        <activity
+            android:name=".ui.module.record.cache_movie.CacheMovieActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+
+        <!-- 评论输入对话框 -->
+        <activity
+            android:name=".ui.module.player.dialog.TextInputDialog"
+            android:theme="@style/AppTheme.Dialog"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+        <activity
+            android:name=".ui.module.record.RecordActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ui.module.videoedit.VideoEditActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".ui.module.videopush.VideoPushActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 完善信息输入对话框 -->
+        <activity
+            android:name=".ui.module.videopush.dialog.VPInputDialog"
+            android:theme="@style/AppTheme.Dialog"
+            android:windowSoftInputMode="stateAlwaysVisible" />
+        <activity
+            android:name=".ui.module.preview_movie.PreviewMovieActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.module.record.local_media.VideoPlayActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".weight.photo_select.ui.ISCameraActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.module.record.local_media.LocalMediaActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".weight.photo_select.ui.ISListActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.module.user.UserActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.module.videocall.VideoCallActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.module.videocall.backactivity.VideoCallBgResponseActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance" />
+
+        <!-- 图片 转 视频 Activity -->
+        <activity
+            android:name=".ui.module.pic2video.Pic2VideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.module.record.local_media.PhotoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".ui.module.videocalledit.VideoCallRecordActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="sensorLandscape" />
+
+
+        <!-- activity  end -->
+
+
+        <!-- 短信发送送达 -->
+        <receiver android:name=".utils.SMSReceiver" />
+
+        <service
+            android:name=".ui.service.UploadContactService"
+            android:exported="false" />
+
+        <!-- 屏幕录制 start -->
+        <service android:name=".ui.module.videocall.service.ScreenRecordService" />
+        <!-- 屏幕录制 end -->
+
+    </application>
+
+</manifest>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 规范5种常用字体大小 -->
+    <dimen name="text_size_large">20dp</dimen>
+    <dimen name="text_size_big">18dp</dimen>
+    <dimen name="text_size_normal">16dp</dimen>
+    <dimen name="text_size_small">14dp</dimen>
+    <dimen name="text_size_min">12dp</dimen>
+
+    <!-- Main 界面 -->
+    <dimen name="main_toolbar_height">44dp</dimen>
+    <dimen name="main_toolbar_btn_size">38dp</dimen>
+    <dimen name="main_toolbar_btn_padding">0dp</dimen>
+    <dimen name="main_toolbar_btn_margin">3dp</dimen>
+    <dimen name="main_recommend_movie_icon_size">18dp</dimen>
+
+    <!-- 首页 - 电影列表 -->
+    <dimen name="index_category_empty_icon_size">200dp</dimen>
+    <dimen name="index_category_loading_size">60dp</dimen>
+
+    <!-- 全屏播放界面 -->
+    <dimen name="video_player_control_layout_vertical_padding">0dp</dimen>
+    <dimen name="video_player_control_layout_horizontal_padding">45dp</dimen>
+    <dimen name="video_player_control_layout_btn_size">30dp</dimen>
+    <dimen name="video_player_control_layout_btn_padding">5dp</dimen>
+    <dimen name="player_btn_size">36dp</dimen>
+    <dimen name="player_btn_margin">10dp</dimen>
+    <dimen name="player_toolbar_height">48dp</dimen>
+    <dimen name="player_toolbar_btn_size">40dp</dimen>
+    <dimen name="player_toolbar_btn_margin">4dp</dimen>
+    <dimen name="player_toolbar_btn_padding">12dp</dimen>
+    <dimen name="player_toolbar_portrait_size">32dp</dimen>
+
+    <!-- 举报对话框 -->
+    <dimen name="dialog_report_title_btn_size">30dp</dimen>
+
+    <!-- 侧边栏下载 -->
+    <dimen name="download_menu_toggle_padding">10dp</dimen>
+    <dimen name="download_menu_toggle_height">80dp</dimen>  <!-- 10 + 60 + 10 = 80-->
+    <dimen name="download_menu_toggle_width">40dp</dimen>   <!-- 30 + 10 = 40-->
+    <dimen name="download_menu_width">108dp</dimen>
+
+    <dimen name="grid_expected_size">120dp</dimen>
+
+    <!-- 悬浮菜单 -->
+    <dimen name="floating_menu_btn_size">60dp</dimen>
+    <dimen name="floating_menu_btn_margin">20dp</dimen>
+    <dimen name="floating_menu_panel_size">190dp</dimen>
+
+</resources>
+

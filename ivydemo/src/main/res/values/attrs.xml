@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources> <!-- 自定义控件的名称 -->
+    <declare-styleable name="StrokeTextView">
+        <!-- 自定义的属性名称 和对应的单位 -->
+        <attr name="outerColor" format="color|reference" />
+        <attr name="innnerColor" format="color|reference" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingPager">
+        <attr name="pager_loading" format="reference" />
+        <attr name="pager_error" format="reference" />
+        <attr name="pager_empty" format="reference" />
+        <attr name="pager_success" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="line_count" format="integer|reference" />
+        <attr name="line_width" format="dimension|reference" />
+        <attr name="progress_start_color" format="color|reference" />
+        <attr name="progress_end_color" format="color|reference" />
+        <attr name="progress_text_color" format="color|reference" />
+        <attr name="progress_text_size" format="dimension|reference" />
+        <attr name="progress_stroke_width" format="dimension|reference" />
+        <attr name="progress_background_color" format="color|reference" />
+        <attr name="progress_start_degree" format="integer|reference" />
+        <attr name="drawBackgroundOutsideProgress" format="boolean|reference" />
+
+        <attr name="style">
+            <enum name="line" value="0" />
+            <enum name="solid" value="1" />
+            <enum name="solid_line" value="2" />
+        </attr>
+
+        <attr name="progress_shader">
+            <enum name="linear" value="0" />
+            <enum name="radial" value="1" />
+            <enum name="sweep" value="2" />
+        </attr>
+
+        <attr name="progress_stroke_cap">
+            <enum name="butt" value="0" />
+            <enum name="round" value="1" />
+            <enum name="square" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <!-- 上传下载进度遮罩 -->
+    <declare-styleable name="WaterFlowProgress">
+        <attr name="wf_progress" format="integer"/>
+        <attr name="wf_max" format="integer"/>
+
+        <attr name="wf_unfinished_color" format="color"/>
+        <attr name="wf_finished_color" format="color"/>
+
+        <attr name="wf_text_size" format="dimension"/>
+        <attr name="wf_text_color" format="color"/>
+
+        <attr name="wf_prefix_text" format="string"/>
+        <attr name="wf_suffix_text" format="string"/>
+
+        <attr name="wf_pause_drawable" format="reference" />
+        <attr name="wf_complete_drawable" format="reference" />
+    </declare-styleable>
+
+    <!-- 倒影 layout -->
+    <declare-styleable name="ReflectLayout_Layout">
+        <attr name="reflect" format="boolean" />
+        <attr name="reflect_height" format="reference|dimension">
+            <flag name="match_parent" value="-1" />
+        </attr>
+        <attr name="reflect_space" format="reference|dimension" />
+        <attr name="reflect_start_alpha" format="reference|float" />
+        <attr name="reflect_end_alpha" format="reference|float" />
+    </declare-styleable>
+
+    <declare-styleable name="RatioLayout">
+        <attr name="dimension_ratio" format="string"/>
+    </declare-styleable>
+
+    <attr name="indexBarTextSize" format="dimension" />
+
+    <declare-styleable name="IndexBar">
+        <attr name="indexBarTextSize" />
+        <attr name="indexBarPressBackground" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LoadingIndicatorView">
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension"/>
+        <attr name="minHeight" format="dimension" />
+        <attr name="maxHeight" format="dimension"/>
+        <attr name="indicatorName" format="string"/>
+        <attr name="indicatorColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="PaywayView">
+        <attr name="isBindAlipay" format="boolean"/>
+        <attr name="isBindWechat" format="boolean"/>
+        <attr name="isShowAlipay" format="boolean"/>
+        <attr name="isShowWechat" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="StickyScrollView">
+        <attr name="stuckShadowHeight" format="dimension" />
+        <attr name="stuckShadowDrawable" format="reference" />
+    </declare-styleable>
+</resources>

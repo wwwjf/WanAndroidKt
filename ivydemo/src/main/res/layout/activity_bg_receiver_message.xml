@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent_70">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/vc_request_chat"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_vc_user_avatar"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_my_head_default"
+        app:layout_constraintBottom_toTopOf="@id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_vc_user_avatar_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        tools:src="@drawable/icon_boy_vc"
+        app:layout_constraintBottom_toBottomOf="@id/iv_vc_user_avatar"
+        app:layout_constraintRight_toRightOf="@id/iv_vc_user_avatar" />
+
+    <TextView
+        android:id="@+id/tv_vc_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
+        android:textSize="17dp"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_vc_user_age"
+        app:layout_constraintTop_toBottomOf="@id/iv_vc_user_avatar"
+        tools:text="name" />
+
+    <TextView
+        android:id="@+id/tv_vc_user_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="@id/tv_vc_user_name"
+        app:layout_constraintLeft_toRightOf="@id/tv_vc_user_name"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_vc_user_name"
+        tools:text="age" />
+
+    <TextView
+        android:id="@+id/tv_vc_user_intro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginRight="@dimen/dp_10"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:hint="@string/user_my_intro_empty"
+        android:lines="2"
+        android:maxLines="2"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_vc_user_name" />
+
+
+    <Button
+        android:id="@+id/btn_vc_refuse"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="35dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/shape_rectangle_stoke_ffffff_c20dp"
+        android:text="@string/refuse"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_17"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_vc_receive" />
+
+    <Button
+        android:id="@+id/btn_vc_receive"
+        android:layout_width="@dimen/dp_100"
+        android:layout_height="35dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/shape_rectangle_soild_ff4855_c20dp"
+        android:text="@string/receive"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_17"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn_vc_refuse"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

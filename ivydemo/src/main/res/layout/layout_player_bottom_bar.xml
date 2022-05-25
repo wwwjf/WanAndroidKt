@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/video_player_control_layout_horizontal_padding"
+    android:paddingTop="@dimen/video_player_control_layout_vertical_padding"
+    android:paddingRight="@dimen/video_player_control_layout_horizontal_padding"
+    android:paddingBottom="@dimen/video_player_control_layout_vertical_padding"
+    tools:background="@color/colorPrimaryDark"
+    tools:showIn="@layout/layout_video_control">
+
+    <ImageView
+        android:id="@+id/iv_state"
+        android:layout_width="@dimen/video_player_control_layout_btn_size"
+        android:layout_height="@dimen/video_player_control_layout_btn_size"
+        android:padding="@dimen/video_player_control_layout_btn_padding"
+        android:src="@mipmap/icon_zanting" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp">
+
+            <TextView
+                android:id="@+id/current"
+                style="@style/PlayerActivityStyle.SeekBarText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/total"
+                style="@style/PlayerActivityStyle.SeekBarText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00" />
+        </LinearLayout>
+
+        <SeekBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+    </LinearLayout>
+
+    <!-- 仅仅是为了对称 -->
+    <View
+        android:layout_width="@dimen/video_player_control_layout_btn_size"
+        android:layout_height="@dimen/video_player_control_layout_btn_size"
+        android:padding="@dimen/video_player_control_layout_vertical_padding" />
+</LinearLayout>

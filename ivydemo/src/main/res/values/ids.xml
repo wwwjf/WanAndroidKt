@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="btn_main_menu_camera" type="id" />
+    <item name="btn_main_menu_mine" type="id" />
+    <item name="btn_main_menu_home" type="id" />
+    <item name="web_view" type="id"/>
+
+    <item name="rb_1" type="id" />
+    <item name="rb_2" type="id" />
+    <item name="rb_3" type="id" />
+    <item name="rb_4" type="id" />
+</resources>

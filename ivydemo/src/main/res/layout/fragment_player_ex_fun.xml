@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xianghe.ivy.ui.module.player.MyDrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/layout_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.xianghe.ivy.weight.ClickButton
+                    android:id="@+id/btn_comment"
+                    style="@style/PlayerActivityStyle.Btn"
+                    android:src="@drawable/btn_icon_liuyan_selector" />
+
+                <TextView
+                    android:id="@+id/tv_comment_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_min" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_btn_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.xianghe.ivy.weight.ClickButton
+                    android:id="@+id/btn_follow"
+                    style="@style/PlayerActivityStyle.Btn"
+                    android:src="@drawable/btn_icon_start_selector" />
+
+                <TextView
+                    android:id="@+id/tv_follow_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_min" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_btn_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.xianghe.ivy.weight.ClickButton
+                    android:id="@+id/btn_dianzan"
+                    style="@style/PlayerActivityStyle.Btn"
+                    android:src="@drawable/btn_icon_dianzan_selector" />
+
+                <TextView
+                    android:id="@+id/tv_dianzan_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_min" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/player_btn_margin"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.xianghe.ivy.weight.ClickButton
+                    android:id="@+id/btn_share"
+                    style="@style/PlayerActivityStyle.Btn"
+                    android:src="@drawable/btn_icon_share_selector" />
+
+                <TextView
+                    android:id="@+id/tv_share_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_min" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="right|end">
+
+        <fragment
+            android:id="@+id/fragment_share"
+            class="com.xianghe.ivy.ui.module.player.mvp.view.fragment.ShareFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <fragment
+            android:id="@+id/fragment_comment"
+            class="com.xianghe.ivy.ui.module.player.mvp.view.fragment.CommentFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+</com.xianghe.ivy.ui.module.player.MyDrawerLayout>

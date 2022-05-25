@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tool="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/surface_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="@color/colorPrimaryDark" />
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/thumb"-->
+    <!--android:background="@color/red"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <ImageView
+        android:id="@+id/iv_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <!--</RelativeLayout>-->
+
+    <RelativeLayout
+        android:id="@+id/layout_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/img_tongyong200" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/common_network_error"
+            android:textColor="@color/text_color_gray"
+            android:textSize="@dimen/text_size_large" />
+    </RelativeLayout>
+
+    <!--<include layout="@layout/layout_video_control" />-->
+
+    <ImageView
+        android:id="@+id/start"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/drawable_ripple"
+        android:src="@drawable/drawable_ripple_play" />
+
+    <LinearLayout
+        android:id="@+id/loading"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:background="@drawable/loading_background"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:visibility="invisible"
+        tools:visibility="visible">
+
+        <ProgressBar
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:id="@+id/tv_network_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/text_size_small"
+            tools:text="100kps/s" />
+    </LinearLayout>
+    <!--<moe.codeest.enviews.ENDownloadView-->
+    <!--android:id="@+id/loading"-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="80dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:visibility="invisible" />-->
+</FrameLayout>

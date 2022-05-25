@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="357dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_custom_dialog_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_custom_alert_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black_color_000000"
+        android:textSize="18dp"
+        tools:text="title" />
+
+    <TextView
+        android:id="@+id/ll_custom_alert_dialog_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="25dp"
+        android:gravity="center"
+        android:textColor="@color/color_666666"
+        android:textSize="16dp"
+        tools:text="content"/>
+
+    <!--分割线-->
+    <View style="@style/line_horizontal_eee" />
+
+    <!--两个按钮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_custom_alert_dialog_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/common_cancel"
+            tools:visibility="gone"
+            android:textColor="@color/black_color_333333"
+            android:textSize="17dp" />
+
+        <View
+            tools:visibility="gone"
+            android:id="@+id/tv_custom_alert_dialog_line"
+            style="@style/line_vertical_eee" />
+
+        <TextView
+            android:id="@+id/tv_custom_alert_dialog_ensure"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/common_ensure"
+            android:textColor="@color/blue_color_007AFF"
+            android:textSize="17dp" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="portrait_scene_transition">头像共享元素动画</string>
+    <string name="username_scene_transition">用户名享元素动画</string>
+    <string name="cover_scene_transition">封面共享元素动画</string>
+</resources>

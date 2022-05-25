@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_color_282834"
+    android:padding="8dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/iv_item_main_search_movie_avatar"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_my_head_default" />
+
+    <TextView
+        android:id="@+id/tv_item_main_search_movie_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/iv_item_main_search_movie_avatar"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="#fff"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/tv_item_main_search_movie_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_item_main_search_movie_name"
+        android:layout_alignStart="@+id/tv_item_main_search_movie_name"
+        android:layout_marginTop="5dp"
+        android:layout_toStartOf="@id/iv_item_main_search_movie_cover"
+        android:textColor="#ffffff"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:id="@+id/iv_item_main_search_movie_cover"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentEnd="true"
+        android:background="@color/black_color_1e1e28"
+        android:scaleType="centerCrop" />
+
+</RelativeLayout>

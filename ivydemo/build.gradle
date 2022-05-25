@@ -1,0 +1,169 @@
+plugins {
+    id 'org.jetbrains.kotlin.android'
+    id 'org.greenrobot.greendao'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+}
+
+if (isLibrary.toBoolean()){
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin:  'com.android.application'
+}
+
+android {
+
+    compileSdkVersion Integer.valueOf(compile_sdk_version)
+
+    defaultConfig {
+        if (!isLibrary.toBoolean()){
+            applicationId "com.xianghe.ivy"
+        }
+        minSdkVersion Integer.valueOf(min_sdk_version)
+        targetSdkVersion Integer.valueOf(target_sdk_version)
+        versionCode 50
+        versionName "$version_name"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk { //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）            abiFilters  "armeabi-v7a"
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/app_debug.kotlin_module'
+    }
+    sourceSets {
+        main{
+
+            jniLibs.srcDirs = ['src/main/jniLibs', 'libs']
+            jni.srcDirs = []
+            if (isLibrary.toBoolean()){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+//        preDexLibraries = false
+    }
+    lintOptions {
+        abortOnError false
+        checkReleaseBuilds false
+        // 防止在发布的时候出现因MissingTranslation导致Build Failed!
+        disable 'MissingTranslation'
+    }
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.xianghe.ivy.entity.dao'
+        targetGenDir 'src/main/java'
+    }
+}
+
+dependencies {
+
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
+    implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation "androidx.legacy:legacy-support-v4:$legacy_support_version"
+    testImplementation "junit:junit:$junit_version"
+    androidTestImplementation "androidx.test.ext:junit:$ext_junit_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core_version"
+
+    implementation project(":common")
+    implementation project(':mp4processor')
+    implementation project(':viewpagerlayoutmanager')
+    implementation(name: 'LiteAVSDK_UGC', ext: 'aar')
+    // greenDao
+    implementation "org.greenrobot:greendao-generator:$greendao_generator_version"
+    implementation "org.greenrobot:greendao:$greendao_version"
+
+    implementation 'jp.wasabeef:glide-transformations:4.0.0'
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    implementation "com.github.bumptech.glide:okhttp3-integration:$glide_okhttp3_integration_version"
+    // butterknife
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    kapt 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'com.blankj:utilcode:1.13.15'
+    implementation 'com.github.huburt-Hu:NewbieGuide:v2.4.0'
+    //    https://github.com/H07000223/FlycoTabLayout TabLayout控件
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    // https://github.com/promeG/TinyPinyin 拼音库
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.github.zyyoona7:EasyPopup:1.1.2'
+    /* 下载相关 -- Start -- */
+
+    // core
+    implementation 'com.liulishuo.okdownload:okdownload:1.0.5'
+
+    // provide sqlite to store breakpoints
+    implementation 'com.liulishuo.okdownload:sqlite:1.0.5'
+
+    // provide okhttp to connect to backend
+    implementation 'com.liulishuo.okdownload:okhttp:1.0.5'
+
+    /* 下载相关 --  End  -- */
+
+    implementation 'frankiesardo:icepick:3.2.0'
+    compileOnly 'frankiesardo:icepick-processor:3.2.0'
+
+    implementation "org.jetbrains.anko:anko-commons:$anko_version"
+    implementation "org.jetbrains.anko:anko-coroutines:$anko_version"
+
+    // https://github.com/lygttpod/SuperTextView
+    implementation 'com.github.lygttpod:SuperTextView:2.1.8'
+
+    // gsyVideoPlayer
+    implementation 'com.shuyu:gsyVideoPlayer-java:6.0.1'
+    implementation 'com.shuyu:GSYVideoPlayer-exo2:6.0.0-beta'
+    implementation 'com.shuyu:gsyVideoPlayer-ex_so:6.0.0-beta'
+
+
+    /* 首页悬浮菜单 */
+    implementation 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+
+    /* 圆形ImageView */
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    implementation 'lib.gorden.rxbus2:rxbus:2.0.1'
+    implementation 'com.czt.mp3recorder:library:1.0.4'
+    implementation 'com.mylhyl:circleDialog:2.6.6'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    /* 上拉加载下拉刷新（不支持水平效果）*/
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+
+    /* 水平刷新 */
+    implementation 'xiao.free.horizontalrefreshlayout:lib:v0.1.2'
+    implementation 'com.yuyh.easyadapter:library:1.1.0'
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.6.0'
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.4.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.4.0"
+
+
+}

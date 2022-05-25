@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/black_color_1e1e28">
+
+        <!--头部-->
+        <ImageView
+            android:id="@+id/iv_activity_local_media_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:src="@mipmap/ic_my_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/record_local_media"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_activity_local_media_ensure"
+            android:enabled="false"
+            android:text="@string/common_ensure"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center"
+            android:gravity="center"
+            android:textColor="@color/selector_enable_btn_color"
+            android:textSize="17dp" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:background="@color/black_color_282834"
+        android:layout_width="match_parent"
+        android:layout_height="44dp">
+
+        <TextView
+            android:enabled="false"
+            android:id="@+id/tv_activity_local_media_video"
+            android:text="@string/local_video"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textColor="@color/selector_local_color"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_activity_local_media_pic"
+            android:text="@string/local_pic"
+            android:gravity="center"
+            android:textSize="17dp"
+            android:textColor="@color/selector_local_color"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_activity_local_media_bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:background="#B3000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_portrait"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:padding="2dp"
+            tools:src="@mipmap/ic_my_head_default" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="Jesse Bates"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_normal" />
+
+                <TextView
+                    android:id="@+id/tv_repeat_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:singleLine="true"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_small"
+                    tools:text="\@Jesse Bates" />
+
+                <TextView
+                    android:id="@+id/view_replay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/common_forward"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_stamp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="刚刚"
+                    android:textColor="@color/text_color_gray"
+                    android:textSize="@dimen/text_size_min" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/btn_delete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/drawable_ripple"
+                    android:clickable="true"
+                    android:padding="2dp"
+                    android:text="@string/common_delete"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_small"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/btn_report"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/drawable_ripple"
+                    android:clickable="true"
+                    android:padding="2dp"
+                    android:text="@string/common_repeat"
+                    android:textColor="@color/text_color_white"
+                    android:textSize="@dimen/text_size_small" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textColor="@color/text_color_white"
+        android:textSize="@dimen/text_size_small"
+        tools:text="影片不错，主角挺帅啊～同城交友欢迎加入～这里是内容，内容输出啊！" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.4dp"
+        android:background="@drawable/drawable_list_divider" />
+</LinearLayout>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/vc_csl_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.module.videocall.VideoCallActivity">
+
+
+    <FrameLayout
+        android:id="@+id/vc_frame_remote_video_view_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:background="@color/black_color_484852"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <FrameLayout
+        android:id="@+id/vc_frame_local_video_view_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        tools:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 点击滑动左右2边视频的大小的透明触摸控件-->
+    <View
+        android:id="@+id/moveView"
+        android:layout_width="100dp"
+        android:clickable="true"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <!-- loading 状态 -->
+    <ViewStub
+        android:id="@+id/vc_frame_remote_video_view_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout="@layout/activity_video_call_wait"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="@id/vc_frame_remote_video_view_container"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/vc_iv_back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="14dp"
+        android:background="@drawable/selector_ic_vc_back_def_press"
+        android:clickable="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!--  拨打端 录制 start -->
+    <ImageView
+        android:id="@+id/vc_iv_record"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="14dp"
+        android:background="@drawable/btn_record_default_vc"
+        android:clickable="true"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintLeft_toLeftOf="@id/vc_frame_local_video_view_container"
+        app:layout_constraintTop_toTopOf="@id/vc_frame_local_video_view_container" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginStart="@dimen/dp_8"
+        app:layout_constraintLeft_toLeftOf="@id/vc_frame_local_video_view_container"
+        app:layout_constraintTop_toBottomOf="@id/vc_iv_record"
+        android:gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/vc_iv_dia_record_time"
+            android:layout_width="6dp"
+            android:layout_height="6dp"
+            android:layout_gravity="center"
+            android:src="@drawable/shape_circle_ff4855"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/vc_tv_dia_record_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginStart="@dimen/dp_8"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:text="05:23"
+            tools:visibility="visible" />
+    </LinearLayout>
+    <!-- 拨打端 录制 end -->
+
+    <ImageView
+        android:id="@+id/vc_iv_switch"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="@dimen/dp_20"
+        android:background="@drawable/selector_ic_vc_switch_def_press"
+        android:clickable="true"
+        app:layout_constraintLeft_toRightOf="@id/vc_iv_record"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginRight="@dimen/dp_15" />
+
+
+    <!-- 通话时间 start -->
+    <TextView
+        android:id="@+id/vc_tv_vc_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_16"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:text="05:23"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/vc_tv_vc_time_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_70"
+        android:text="@string/vc_record_time"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/vc_tv_vc_time"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/vc_tv_vc_time"
+        tools:visibility="visible" />
+    <!-- 通话时间 end -->
+
+
+    <!--  录制视频删减列表  -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/vc_rv_dia_record"
+        android:layout_width="wrap_content"
+        android:layout_height="90dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <!--  接受端 录制 start -->
+    <LinearLayout
+        android:id="@+id/vc_ll_record_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_14"
+        android:background="@drawable/shape_rectangle_soild_4d000000_c20dp"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp_6"
+        android:paddingTop="@dimen/dp_1"
+        android:paddingRight="@dimen/dp_6"
+        android:paddingBottom="@dimen/dp_1"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vc_record_click_stop"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/vc_iv_accept_record_time"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="@dimen/dp_6"
+            android:layout_marginRight="@dimen/dp_6"
+            android:src="@drawable/shape_circle_ff4855" />
+
+        <TextView
+            android:id="@+id/vc_tv_accept_record_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tools:text="05:23" />
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

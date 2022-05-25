@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="2dp"
+    android:background="@color/black_color_1e1e28"
+    android:paddingStart="16dp"
+    android:paddingTop="13dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="13dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView_user_adapter_relative_add_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="5dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_my_head_default" />
+
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_add_friendName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/imageView_user_adapter_relative_add_avatar"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_add_friendIvyId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_user_adapter_relative_add_friendName"
+        android:layout_alignStart="@+id/textView_user_adapter_relative_add_friendName"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/imageView_user_adapter_relative_add_avatar"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_add_isRelativeFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_rectangle_soild_999999_c6dp"
+        android:ems="5"
+        android:gravity="center"
+        android:paddingLeft="9dp"
+        android:paddingTop="8dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="8dp"
+        android:text="@string/user_relative_is_relative_friend"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_add_isInviteFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_rectangle_soild_999999_c6dp"
+        android:ems="5"
+        android:gravity="center"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:text="@string/user_relative_is_invite_friend"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_add_inviteFriend_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_rectangle_soild_999999_c6dp"
+        android:ems="5"
+        android:gravity="center"
+        android:padding="8dp"
+        android:visibility="gone"
+        android:text="@string/user_relative_invite_again"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/textView_user_adapter_relative_add_inviteFriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shape_rectangle_soild_ff4855_c6dp"
+        android:ems="5"
+        android:gravity="center"
+        android:paddingLeft="9dp"
+        android:paddingTop="8dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="8dp"
+        android:visibility="gone"
+        android:text="@string/user_relative_friend"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
+</RelativeLayout>

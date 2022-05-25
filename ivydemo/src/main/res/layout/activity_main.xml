@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".ui.module.main.mvp.view.activity.MainActivity">
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <com.xianghe.ivy.ui.module.main.widget.MyTablayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/main_toolbar_height"
+            android:overScrollMode="never"
+            android:padding="5dp"
+            app:tabIndicatorColor="#fff"
+            app:tabMinWidth="84dp"
+            app:tabPaddingEnd="2dp"
+            app:tabPaddingStart="2dp"
+            app:tabTextColor="@color/text_color_white" />
+
+        <ImageView
+            android:id="@+id/iv_qrCode"
+            android:layout_width="@dimen/main_toolbar_height"
+            android:layout_height="@dimen/main_toolbar_height"
+            android:layout_alignParentStart="true"
+            android:padding="10dp"
+            android:src="@mipmap/qr_code_icon"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btn_ranking"
+            android:layout_width="@dimen/main_toolbar_height"
+            android:layout_height="@dimen/main_toolbar_height"
+            android:layout_marginLeft="5dp"
+            android:padding="2dp"
+            android:src="@drawable/ripple_icon_paihangbang1"
+            android:layout_toRightOf="@id/iv_qrCode"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btn_is_member"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/main_toolbar_height"
+            android:layout_marginLeft="5dp"
+            android:padding="2dp"
+            android:src="@mipmap/huiyuan"
+            android:layout_toRightOf="@id/btn_ranking"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btn_search"
+            android:layout_width="@dimen/main_toolbar_height"
+            android:layout_height="@dimen/main_toolbar_height"
+            android:padding="8dp"
+            android:src="@drawable/selector_ic_search"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <com.xianghe.ivy.ui.module.main.widget.MyViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

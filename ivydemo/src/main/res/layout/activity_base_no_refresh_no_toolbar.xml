@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xianghe.ivy.mvp.LoadingPager android:id="@+id/uiController"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    app:pager_empty="@layout/pager_empty"
+    app:pager_error="@layout/pager_error"
+    app:pager_loading="@layout/pager_loading"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" />

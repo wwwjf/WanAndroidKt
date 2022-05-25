@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="14dp"
+    android:paddingTop="12dp"
+    android:paddingRight="14dp"
+    android:paddingBottom="12dp">
+
+    <ImageView
+        android:id="@+id/iv_income_adapter_avatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/icon_zhifubao" />
+
+    <TextView
+        android:id="@+id/tv_income_detail_adapter_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/iv_income_adapter_avatar"
+        android:layout_marginStart="14dp"
+        android:layout_toEndOf="@id/iv_income_adapter_avatar"
+        android:textColor="@color/white"
+        android:textSize="16dp"
+        tools:text="提现到支付宝" />
+
+    <TextView
+        android:id="@+id/tv_income_detail_adapter_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_income_detail_adapter_title"
+        android:layout_alignStart="@id/tv_income_detail_adapter_title"
+        android:layout_toEndOf="@id/iv_income_adapter_avatar"
+        android:textColor="@color/white"
+        android:textSize="12dp"
+        tools:text="03-26 11:11:11" />
+
+    <TextView
+        android:id="@+id/tv_income_detail_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_income_detail_adapter_title"
+        android:layout_marginStart="@dimen/dp_8"
+        android:layout_toEndOf="@id/tv_income_detail_adapter_title"
+        android:layout_toRightOf="@id/tv_income_detail_adapter_title"
+        android:textColor="@color/white_color_9FA7D5"
+        android:textSize="@dimen/dp_12"
+        tools:text="处理中" />
+
+    <TextView
+        android:id="@+id/tv_income_detail_adapter_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dp_17"
+        tools:text="-200.00" />
+
+    <TextView
+        android:id="@+id/tv_income_detail_adapter_total_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_income_detail_adapter_money"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/dp_12"
+        tools:text="账户800.00" />
+
+</RelativeLayout>

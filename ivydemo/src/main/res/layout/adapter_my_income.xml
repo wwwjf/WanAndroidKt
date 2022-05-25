@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_item_user_friend_rootView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/black_color_282834"
+    android:gravity="center_vertical">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_item_my_income_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginTop="@dimen/dp_12"
+            android:layout_marginBottom="@dimen/dp_14"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_my_head_default" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/iv_item_my_income_avatar"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_item_my_income_nickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:maxLines="1"
+                android:text="json"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                tools:text="Jason" />
+
+            <TextView
+                android:id="@+id/tv_item_my_income_uid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="id:12231231"
+                android:textColor="@color/color_999999"
+                android:textSize="@dimen/dp_12" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_item_my_income_more_than_20"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_item_my_income_recommend_num"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_16"
+            tools:text="123.00" />
+
+        <TextView
+            android:id="@+id/tv_item_my_income_recommend_money"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_16"
+            tools:text="123.00" />
+
+        <TextView
+            android:id="@+id/tv_item_my_income_create_money"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dp_16"
+            tools:text="123.00" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_item_my_income_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/dp_14"
+        android:layout_marginRight="@dimen/dp_14"
+        android:textColor="@color/color_999999"
+        android:textSize="14dp"
+        tools:text="03-26 11:17:25" />
+
+</LinearLayout>

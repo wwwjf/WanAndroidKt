@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginLeft="15dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginRight="15dp">
+
+    <FrameLayout
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <FrameLayout
+            android:layout_marginEnd="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="9dp"
+            android:background="@drawable/shape_white_frame"
+            android:id="@+id/view_item_movie_show_list_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_margin="1dp"
+                android:id="@+id/iv_item_movie_show_list_pic"
+                android:scaleType="fitXY"
+                android:layout_width="60dp"
+                android:layout_height="60dp" />
+        </FrameLayout>
+
+        <ImageView
+            android:visibility="invisible"
+            android:id="@+id/iv_item_movie_show_list_delete"
+            android:layout_gravity="right"
+            android:src="@mipmap/btn_icon_delete"
+            android:layout_width="18dp"
+            android:layout_height="18dp" />
+
+        <TextView
+            android:id="@+id/tv_item_movie_show_list_time"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</FrameLayout>

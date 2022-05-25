@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/player_toolbar_height"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    tools:showIn="@layout/ativity_video_play">
+    <LinearLayout
+        android:id="@+id/layout_toolbar_bg"
+        android:background="@drawable/player_toolbar_bg"
+        android:gravity="center_vertical"
+        android:paddingRight="13dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btn_toolbar_back"
+            android:layout_width="1dp"
+            android:layout_height="@dimen/player_toolbar_btn_size"
+            android:layout_margin="@dimen/player_toolbar_btn_margin"
+            android:background="@drawable/btn_circle_bg"
+            android:clickable="true"
+            android:padding="@dimen/player_toolbar_btn_padding"
+            android:src="@mipmap/icon_fanhui_bofang" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_portrait"
+            android:layout_width="@dimen/player_toolbar_portrait_size"
+            android:layout_height="@dimen/player_toolbar_portrait_size"
+            android:layout_marginLeft="8dp"
+            android:src="@mipmap/ic_my_head_default"
+            android:transitionName="@string/portrait_scene_transition" />
+
+        <TextView
+            android:id="@+id/tv_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:maxLength="4"
+            android:ellipsize="none"
+            android:singleLine="true"
+            android:textColor="@color/text_color_white"
+            android:textSize="@dimen/text_size_normal"
+            android:transitionName="@string/username_scene_transition"
+            tools:text="JesThomas" />
+
+
+        <TextView
+            android:id="@+id/tv_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/player_tab_background"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="4dp"
+            android:text="@string/common_relative_friend"
+            android:textColor="@color/text_color_white"
+            android:textSize="10dp"
+            android:visibility="gone"
+            tools:visibility="visible" />
+        <ImageView
+            android:id="@+id/btn_follow_user"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/circlr_follow_add_selector"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_toVideoCall"
+            android:layout_marginLeft="@dimen/dp_9"
+            android:layout_width="@dimen/dp_35"
+            android:layout_height="@dimen/dp_35"
+            android:src="@mipmap/btn_guanzhu_addper_copy"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_toolbar_r"
+
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btn_top_1"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/btn_wode_default"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btn_top_5"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/btn_haoyouxiaoxi_default"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+
+        <ImageView
+            android:id="@+id/btn_top_2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/erweima"
+            android:visibility="gone"
+            tools:visibility="visible" />
+        <RelativeLayout
+            android:layout_marginLeft="20dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/fab_bg"
+            >
+            <ImageView
+                android:id="@+id/btn_top_3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+
+
+                android:src="@drawable/selector_ic_search"
+                android:visibility="gone"
+
+                tools:visibility="visible" />
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/btn_top_4"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/huiyuan_1"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </LinearLayout>
+
+
+</LinearLayout>

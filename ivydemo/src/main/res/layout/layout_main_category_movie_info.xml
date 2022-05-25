@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:paddingLeft="8dp"
+    android:paddingTop="20dp"
+    android:paddingRight="8dp"
+    android:paddingBottom="8dp"
+    android:background="@drawable/shadow_bottom_2_top"
+    tools:showIn="@layout/item_main_category">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/RecommendStyle.MovieInfo.Icon"
+            android:src="@mipmap/icon_liuyan_default" />
+
+        <TextView
+            android:id="@+id/tv_comments"
+            style="@style/RecommendStyle.MovieInfo.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="12" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/RecommendStyle.MovieInfo.Icon"
+            android:src="@mipmap/icon_star_default" />
+
+        <TextView
+            android:id="@+id/tv_star"
+            style="@style/RecommendStyle.MovieInfo.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="34" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/RecommendStyle.MovieInfo.Icon"
+            android:src="@mipmap/icon_dianzan_default" />
+
+        <TextView
+            android:id="@+id/tv_like"
+            style="@style/RecommendStyle.MovieInfo.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="27" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            style="@style/RecommendStyle.MovieInfo.Icon"
+            android:src="@mipmap/icon_share_default" />
+
+        <TextView
+            android:id="@+id/tv_share"
+            style="@style/RecommendStyle.MovieInfo.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            tools:text="16" />
+    </LinearLayout>
+</LinearLayout>

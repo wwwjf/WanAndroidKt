@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:transitionName="@string/cover_scene_transition">
+
+    <!-- 视频列表 -->
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/refresh_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 下拉刷新 样式 -->
+        <com.scwang.smartrefresh.header.MaterialHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/view_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:transitionName="@string/cover_scene_transition" />
+
+        <!-- 上拉加载更多 样式 -->
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:id="@+id/refresh_footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <com.xianghe.ivy.weight.circlemenu.CircleMenu
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <RelativeLayout
+        android:id="@+id/no_video_data"
+
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_centerInParent="true"
+            android:src="@mipmap/img_tongyong200"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <!--<Button
+            android:id="@+id/no_video_data_b"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="网络数据异常！"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />-->
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/btn_go_camera"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="40dp"
+        android:layout_gravity="bottom|right"
+        android:src="@mipmap/btn_paishe_default"
+        tools:visibility="visible" />
+
+
+    <!-- Toolbar -->
+    <include
+        android:id="@+id/layout_toolbar"
+        layout="@layout/layout_player_toolbar" />
+    <!-- 额外的功能 fragment -->
+    <fragment
+        android:id="@+id/fragment_ex_fun"
+        class="com.xianghe.ivy.ui.module.player.mvp.view.fragment.PlayerExFunFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</FrameLayout>

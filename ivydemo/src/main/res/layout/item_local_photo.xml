@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xianghe.ivy.weight.photo_select.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#f66">
+
+
+    <ImageView
+        android:id="@+id/iv_item_local_photo_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/iv_item_local_photo_tick"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:src="@drawable/tick_icon" />
+
+    <TextView
+        android:id="@+id/tv_item_local_photo_check_number"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/shape_circle_red"
+        android:gravity="center"
+        android:visibility="gone" />
+</com.xianghe.ivy.weight.photo_select.widget.SquareRelativeLayout>

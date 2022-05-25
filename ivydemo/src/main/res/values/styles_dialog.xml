@@ -1,0 +1,120 @@
+<resources>
+
+    <style name="AnimBottom" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/anim_trany_1_0</item>
+        <item name="android:windowExitAnimation">@anim/anim_trany_0_1</item>
+    </style>
+
+    <style name="AnimRight" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/anim_tranx_1_0</item>
+        <item name="android:windowExitAnimation">@anim/anim_tranx_0_1</item>
+    </style>
+
+    <style name="AnimScale" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/anim_scalexy_0_1</item>
+        <item name="android:windowExitAnimation">@anim/anim_scalexy_1_0</item>
+    </style>
+
+    <style name="DialogStyleBottomTranslut" parent="android:Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/AnimBottom</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+    </style>
+  <style name="DialogStyleScaleTranslut" parent="android:Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/AnimScale</item>
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+    </style>
+
+    <style name="DialogStyleRightTranslut" parent="android:Theme.Dialog">
+        <item name="android:windowAnimationStyle">@style/AnimRight</item>
+        <item name="android:background">@color/transparent</item>
+
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/transparent</item>
+        <!-- 背景透明 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 模糊 -->
+        <item name="android:windowFullscreen">true</item>
+        <!-- 模糊 -->
+    </style>
+
+
+    <!--  BaseDialogFragment 的默认 style -->
+    <style name="BaseDialogFragmentStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowSoftInputMode">adjustPan</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <!--  下滑进入，下滑退出 -->
+    <style name="BottomAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_trany_1_0</item>
+        <item name="android:windowExitAnimation">@anim/anim_trany_0_1</item>
+    </style>
+    <!--  上滑进入，下滑退出 -->
+    <style name="TopAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_trany_0_1</item>
+        <item name="android:windowExitAnimation">@anim/anim_trany_1_0</item>
+    </style>
+
+    <!--  右滑进入，右滑退出 -->
+    <style name="RightAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_tranx_1_0</item>
+        <item name="android:windowExitAnimation">@anim/anim_tranx_0_1</item>
+    </style>
+
+    <!--  放大进入，缩小退出 -->
+    <style name="ScaleAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_scalexy_0_1</item>
+        <item name="android:windowExitAnimation">@anim/anim_scalexy_1_0</item>
+    </style>
+
+
+
+
+    <style name="PopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_push_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_push_bottom_out</item>
+    </style>
+
+    <!--渐渐出现消失动画-->
+    <style name="popuStyle">
+        <item name="android:windowEnterAnimation">@anim/anim_popup_anim_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_popup_anim_out</item>
+    </style>
+
+    <style name="PopupAnimaFade" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/anim_basepopup_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_basepopup_fade_out</item>
+    </style>
+</resources>

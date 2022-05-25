@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="357dp"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center"
+              android:background="@drawable/shape_custom_dialog_bg"
+              android:gravity="center_horizontal"
+              android:orientation="vertical">
+
+    <TextView
+        android:paddingBottom="9dp"
+        android:id="@+id/tv_custom_alert_dialog_ensure_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/black_color_000000"
+        android:textSize="20dp"/>
+
+    <!--中间的内容部分-->
+    <TextView
+        android:layout_marginTop="20dp"
+        android:lineSpacingMultiplier="1.2"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/ll_custom_alert_dialog_ensure_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:textColor="@color/black_color_000000"
+        android:textSize="15dp">
+    </TextView>
+
+    <View
+        style="@style/line_horizontal"/>
+
+    <TextView
+        android:id="@+id/tv_custom_alert_dialog_ensure_ensure"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="@string/common_ensure"
+        android:textColor="@color/blue_color_007AFF"
+        android:textSize="18dp"/>
+</LinearLayout>

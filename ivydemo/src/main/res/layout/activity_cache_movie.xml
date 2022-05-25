@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/black_color_1e1e28">
+
+        <!--头部-->
+        <ImageView
+            android:id="@+id/iv_activity_cache_movie_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:src="@mipmap/ic_my_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/cache_movie_title"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_activity_cache_movie_clear"
+            android:text="@string/cache_movie_clear"
+            android:gravity="center"
+            android:layout_gravity="right"
+            android:textColor="@color/white"
+            android:textSize="17dp"
+            android:padding="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@color/black_color_1e1e28"
+        android:id="@+id/rv_activity_cache_movie_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>

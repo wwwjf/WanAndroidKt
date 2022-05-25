@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <!--<style name="Theme.WanAndroidKt" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        &lt;!&ndash; Primary brand color. &ndash;&gt;
+        <item name="colorPrimaryVariant">#FF1E1E28</item>
+        <item name="colorOnPrimary">@color/white</item>
+        &lt;!&ndash; Secondary brand color. &ndash;&gt;
+        <item name="colorSecondary">#FF1E1E28</item>
+        <item name="colorSecondaryVariant">#FF1E1E28</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <color name="colorPrimary">#FF282834</color>
+        <color name="colorPrimaryDark">#FF1E1E28</color>
+        <color name="colorAccent">@color/red</color>
+        &lt;!&ndash; Status bar color. &ndash;&gt;
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        &lt;!&ndash; Customize your theme here. &ndash;&gt;
+    </style>-->
+</resources>

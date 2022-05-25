@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintDimensionRatio="10:9">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="4:3">
+
+                <ImageView
+                    android:id="@+id/iv_cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+                <View
+                    android:id="@+id/view_shade"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#7000" />
+
+                <ImageView
+                    android:id="@+id/btn_play"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/btn_bofang_default" />
+
+                <include
+                    android:id="@+id/layout_movie_toolbar"
+                    layout="@layout/layout_main_category_movie_toolbar" />
+
+                <include
+                    android:id="@+id/layout_movie_info"
+                    layout="@layout/layout_main_category_movie_info"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </FrameLayout>
+            <ImageView
+                android:id="@+id/iv_movie_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/logo_qin"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/iv_shadow"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha="0.2"
+            android:background="@color/colorPrimaryDark" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

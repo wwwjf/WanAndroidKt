@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    android:oneshot="false" xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/anim_list_item_ve_music1" android:duration="100"/>
+    <item android:drawable="@drawable/anim_list_item_ve_music2" android:duration="100"/>
+    <item android:drawable="@drawable/anim_list_item_ve_music3" android:duration="100"/>
+    <item android:drawable="@drawable/anim_list_item_ve_music4" android:duration="100"/>
+    <item android:drawable="@drawable/anim_list_item_ve_music5" android:duration="100"/>
+    <item android:drawable="@drawable/anim_list_item_ve_music6" android:duration="100"/>
+    <item android:drawable="@drawable/anim_list_item_ve_music7" android:duration="100"/>
+    <item android:drawable="@drawable/anim_list_item_ve_music8" android:duration="100"/>
+</animation-list>
