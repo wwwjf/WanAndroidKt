@@ -28,6 +28,7 @@ import com.xianghe.ivy.model.HuoDongInfoBean;
 import com.xianghe.ivy.mvp.loadPager.BaseMVPCustomLoadingActivity;
 import com.xianghe.ivy.ui.module.player.PlayerActivity;
 import com.xianghe.ivy.ui.module.player.mvp.contact.PlayerContact;
+import com.xianghe.ivy.ui.module.record.RecordActivity;
 import com.xianghe.ivy.utils.HuoDongHelper;
 import com.xianghe.ivy.utils.KLog;
 import com.xianghe.ivy.utils.LanguageUtil;
@@ -112,8 +113,11 @@ public class XWLauncherActivity extends BaseMVPCustomLoadingActivity<XWLauncherC
             isFinish = true;
             vv.stopPlayback();
             if (!XWLauncherActivity.this.isFinishing() && isPermission && !isRequestMediaDetail) {
-                jump2Main();
-             //   mPresenter.refreshCategoryList("recommend");
+//                jump2Main();
+                //跳转个人界面
+                Intent intent = new Intent(this, RecordActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -332,7 +336,6 @@ public class XWLauncherActivity extends BaseMVPCustomLoadingActivity<XWLauncherC
             if (TAG.equals(tag)) {
                 mPushManager.setTagAndCommit();
 
-                IvyApp.getInstance().getLocationAndContacts();
                 isPermission = true;
 
                 if (!XWLauncherActivity.this.isFinishing() && isFinish && !isRequestMediaDetail) {

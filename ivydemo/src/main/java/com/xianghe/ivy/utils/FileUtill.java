@@ -140,7 +140,7 @@ public class FileUtill {
 
             return var1;
         } else {
-            String var2 = Environment.getExternalStorageDirectory() + File.separator + "TXUGC";
+            String var2 = context.getExternalMediaDirs()[0].getAbsolutePath() + File.separator + "TXUGC";
             File var3 = new File(var2);
             if (!var3.exists()) {
                 var3.mkdir();

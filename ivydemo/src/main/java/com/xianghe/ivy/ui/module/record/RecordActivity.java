@@ -266,7 +266,9 @@ public class RecordActivity extends BaseVideoCallActivity implements MovieShowLi
 
         mAlbumOrientationEventListener = new AlbumOrientationEventListener(this, SensorManager.SENSOR_DELAY_NORMAL);
 
-        mVideoFile = FileUtill.createSaveFile(this, FileUtill.getDefaultDir(this) + "/clip");
+//        mVideoFile = FileUtill.createSaveFile(this, FileUtill.getDefaultDir(this) + "/clip");
+        mVideoFile = getExternalMediaDirs()[0].getAbsolutePath();
+        FileUtill.createSaveFile(this,"TXUGC");
 
         mMovieItemDbDao = GreenDaoManager.getInstance().getMovieItemDao();
     }

@@ -55,13 +55,6 @@ public class MovieAdapter extends ARecyclerAdapter<CategoryMovieBean> implements
         videoView.hasLoadTure = true;
         videoView.isFirstLoad = true;
         videoView.isFirstLoadTwo = true;
-        //holder.setText(R.id.tv_title, item.getTitle());
-
-        // 显示地址
-//        String address = item.getAddress();
-//        boolean isShowAddress = (address != null) && TextUtils.isEmpty(address.trim());
-//        holder.setText(R.id.tv_address, address);
-//        holder.setVisibility(isShowAddress ? View.GONE : View.VISIBLE, R.id.tv_address);
 
         Glide.with(holder.itemView)
                 .load(item.getCover())
