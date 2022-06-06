@@ -49,7 +49,7 @@ public class MovieAdapter extends ARecyclerAdapter<CategoryMovieBean> implements
     protected void onBindViewData(RecyclerHolder holder, int position, List datas) {
         CategoryMovieBean item = getItem(position);
         IvyVideoView videoView = holder.getView(R.id.video_view);
-        videoView.setUp(item.getMediaOssUrl(true), true, item.getTitle());
+        videoView.setUp(item.getMediaOssUrl(true), false, item.getTitle());
         videoView.setLooping(true);
 
         videoView.hasLoadTure = true;

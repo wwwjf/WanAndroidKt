@@ -25,7 +25,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.hubert.guide.NewbieGuide;
 import com.app.hubert.guide.core.Controller;
@@ -96,15 +101,6 @@ import icepick.State;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-
-import static com.xianghe.ivy.app.IvyConstants.USER_MOBILE;
-import static com.xianghe.ivy.constant.Api.VIP.MEMBERURL;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class PlayerActivity extends DownloadActivity<PlayerContact.IView, PlayerContact.IPresenter>
         implements PlayerContact.IView, View.OnClickListener, OnRefreshListener,

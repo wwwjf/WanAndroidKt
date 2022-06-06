@@ -22,27 +22,19 @@ import com.xianghe.ivy.http.request.RequestError;
 import com.xianghe.ivy.http.response.RespCode;
 import com.xianghe.ivy.http.scheduler.SchedulerProvider;
 import com.xianghe.ivy.manager.UserInfoManager;
-import com.xianghe.ivy.model.CategoryMovieBean;
 import com.xianghe.ivy.model.UserBean;
 import com.xianghe.ivy.model.VersionBean;
 import com.xianghe.ivy.model.response.BaseResponse;
 import com.xianghe.ivy.model.response.ResponseIndexCategoryList;
 import com.xianghe.ivy.mvp.BasePresenter;
 import com.xianghe.ivy.ui.base.FloatingMenuActivity;
-import com.xianghe.ivy.ui.module.main.mvp.MainContact;
 import com.xianghe.ivy.ui.module.player.mvp.contact.PlayerContact;
 import com.xianghe.ivy.ui.module.player.mvp.mode.PlayerMode;
 import com.xianghe.ivy.ui.module.record.RecordActivity;
 import com.xianghe.ivy.ui.module.user.UserActivity;
-import com.xianghe.ivy.ui.module.user.UserContract;
 import com.xianghe.ivy.ui.push.PushModel;
 import com.xianghe.ivy.utils.IvyUtils;
 import com.xianghe.ivy.utils.KLog;
-
-import org.jetbrains.annotations.Contract;
-
-import java.io.Serializable;
-import java.util.List;
 
 import gorden.rxbus2.RxBus;
 import gorden.rxbus2.Subscribe;

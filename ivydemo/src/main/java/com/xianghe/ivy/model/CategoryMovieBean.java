@@ -9,6 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import com.xianghe.ivy.app.IvyConstants;
 import com.xianghe.ivy.manager.UserInfoManager;
 import com.xianghe.ivy.utils.IvyUtils;
+import com.xianghe.ivy.utils.KLog;
 
 import java.io.Serializable;
 
@@ -409,7 +410,7 @@ public class CategoryMovieBean implements Movie, Serializable, Cloneable {
                 }
             } else {
                 result = "";
-                if (result == null) {
+                if (TextUtils.isEmpty(result)) {
                     result = getMedia();
                 }
             }

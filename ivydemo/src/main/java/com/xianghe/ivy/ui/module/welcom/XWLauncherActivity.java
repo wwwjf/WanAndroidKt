@@ -16,11 +16,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.xianghe.ivy.R;
-import com.xianghe.ivy.app.IvyApp;
 import com.xianghe.ivy.app.IvyConstants;
 import com.xianghe.ivy.app.em.EMManager;
 import com.xianghe.ivy.constant.Api;
-import com.xianghe.ivy.manager.IvPushManager;
 import com.xianghe.ivy.manager.PermissionManager;
 import com.xianghe.ivy.manager.UserInfoManager;
 import com.xianghe.ivy.model.CategoryMovieBean;
@@ -28,7 +26,6 @@ import com.xianghe.ivy.model.HuoDongInfoBean;
 import com.xianghe.ivy.mvp.loadPager.BaseMVPCustomLoadingActivity;
 import com.xianghe.ivy.ui.module.player.PlayerActivity;
 import com.xianghe.ivy.ui.module.player.mvp.contact.PlayerContact;
-import com.xianghe.ivy.ui.module.record.RecordActivity;
 import com.xianghe.ivy.utils.HuoDongHelper;
 import com.xianghe.ivy.utils.KLog;
 import com.xianghe.ivy.utils.LanguageUtil;
@@ -65,8 +62,6 @@ public class XWLauncherActivity extends BaseMVPCustomLoadingActivity<XWLauncherC
     public static final String SHARE_PLAYER_DATA = "playerData";
 
     private MainPermissionListener mPermissionListener;
-
-    private IvPushManager mPushManager;
 
     private boolean isPermission;
 
@@ -113,11 +108,11 @@ public class XWLauncherActivity extends BaseMVPCustomLoadingActivity<XWLauncherC
             isFinish = true;
             vv.stopPlayback();
             if (!XWLauncherActivity.this.isFinishing() && isPermission && !isRequestMediaDetail) {
-//                jump2Main();
+                jump2Main();
                 //跳转个人界面
-                Intent intent = new Intent(this, RecordActivity.class);
-                startActivity(intent);
-                finish();
+//                Intent intent = new Intent(this, RecordActivity.class);
+//                startActivity(intent);
+//                finish();
             }
         });
     }
@@ -177,8 +172,6 @@ public class XWLauncherActivity extends BaseMVPCustomLoadingActivity<XWLauncherC
 
 
         mPermissionListener = new MainPermissionListener();
-
-        mPushManager = new IvPushManager(this);
 
         // 全屏显示
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -334,7 +327,6 @@ public class XWLauncherActivity extends BaseMVPCustomLoadingActivity<XWLauncherC
         @Override
         public void doAfterGrand(String[] permission, String tag) {
             if (TAG.equals(tag)) {
-                mPushManager.setTagAndCommit();
 
                 isPermission = true;
 

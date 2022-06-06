@@ -1,18 +1,27 @@
 package com.xianghe.ivy.ui.module.record;
 
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+import static com.tencent.rtmp.TXLiveConstants.RENDER_ROTATION_PORTRAIT;
+import static com.tencent.rtmp.TXLiveConstants.VIDEO_ANGLE_HOME_LEFT;
+import static com.tencent.rtmp.TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT;
+import static com.xianghe.ivy.app.IvyConstants.VIDEO_EDIT;
+import static com.xianghe.ivy.app.IvyConstants.VIDEO_RECORD;
+import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.INTENTBACKCODE;
+import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.LOCAL_CODE;
+import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.VIDEO_PATH;
+import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.VIDEO_POSITION;
+import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.VIDEO_TIME;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.hardware.SensorManager;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,17 +32,18 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.OrientationEventListener;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.tencent.rtmp.ui.TXCloudVideoView;
 import com.tencent.ugc.TXRecordCommon;
@@ -47,7 +57,6 @@ import com.xianghe.ivy.manager.NoDoubleClickListenerManager;
 import com.xianghe.ivy.manager.PermissionManager;
 import com.xianghe.ivy.manager.UserInfoManager;
 import com.xianghe.ivy.mvp.BaseVideoCallActivity;
-import com.xianghe.ivy.ui.module.main.mvp.view.activity.MainActivity;
 import com.xianghe.ivy.ui.module.record.adapter.CustomItemTouchCallBack;
 import com.xianghe.ivy.ui.module.record.adapter.MovieShowListAdapter;
 import com.xianghe.ivy.ui.module.record.cache_movie.CacheMovieActivity;
@@ -56,7 +65,6 @@ import com.xianghe.ivy.ui.module.record.model.MovieEditModel;
 import com.xianghe.ivy.ui.module.record.model.MovieItemModel;
 import com.xianghe.ivy.ui.module.videoedit.VideoEditActivity;
 import com.xianghe.ivy.ui.module.welcom.CustomVideoView;
-import com.xianghe.ivy.ui.module.welcom.XWLauncherActivity;
 import com.xianghe.ivy.utils.ConUtil;
 import com.xianghe.ivy.utils.FileUtill;
 import com.xianghe.ivy.utils.KLog;
@@ -80,24 +88,6 @@ import gorden.rxbus2.Subscribe;
 import gorden.rxbus2.ThreadMode;
 import icepick.State;
 import io.reactivex.disposables.Disposable;
-
-import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-import static android.content.pm.ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-import static com.tencent.rtmp.TXLiveConstants.RENDER_ROTATION_PORTRAIT;
-import static com.tencent.rtmp.TXLiveConstants.VIDEO_ANGLE_HOME_LEFT;
-import static com.tencent.rtmp.TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT;
-import static com.xianghe.ivy.app.IvyConstants.VIDEO_EDIT;
-import static com.xianghe.ivy.app.IvyConstants.VIDEO_RECORD;
-import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.INTENTBACKCODE;
-import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.LOCAL_CODE;
-import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.VIDEO_PATH;
-import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.VIDEO_POSITION;
-import static com.xianghe.ivy.ui.module.preview_movie.PreviewMovieActivity.VIDEO_TIME;
-
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 @SuppressWarnings({"unchecked", "ResultOfMethodCallIgnored"})
 public class RecordActivity extends BaseVideoCallActivity implements MovieShowListAdapter.onDeleteListener {

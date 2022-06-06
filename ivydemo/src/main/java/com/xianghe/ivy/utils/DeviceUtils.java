@@ -45,9 +45,9 @@ public class DeviceUtils {
 
             String device_id = "";
 
-            if (checkPermission(context, Manifest.permission.READ_PHONE_STATE)) {
+            /*if (checkPermission(context, Manifest.permission.READ_PHONE_STATE)) {
                 device_id = tm.getDeviceId();
-            }
+            }*/
 
             android.net.wifi.WifiManager wifi = (android.net.wifi.WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 
