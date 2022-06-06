@@ -45,6 +45,10 @@ class VideoDemoActivity : AppCompatActivity() {
         startActivity(Intent(this, TextureViewActivity::class.java))
     }
 
+    fun cameraGLSurfaceView(view: View){
+        startActivity(Intent(this,GLSurfaceViewActivity::class.java))
+    }
+
     fun mediaExtractorMuxer(view: View) {
         startActivity(Intent(this, ExtractorMuxerActivity::class.java))
     }

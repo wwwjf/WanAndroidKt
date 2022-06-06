@@ -11,6 +11,7 @@ import android.view.Surface
 object CameraUtil {
 
 
+    @JvmStatic
     fun getParameters(camera: Camera): Camera.Parameters {
         val width = 1280
         val height = 720

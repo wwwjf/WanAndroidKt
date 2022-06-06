@@ -21,6 +21,13 @@
         android:onClick="cameraTextureView"
         android:text="TextureView采集"
         android:textAllCaps="false" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="cameraGLSurfaceView"
+        android:text="GLSurfaceView采集"
+        android:textAllCaps="false" />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

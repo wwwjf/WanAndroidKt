@@ -7,6 +7,7 @@ import android.view.SurfaceHolder
 import android.view.SurfaceView
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import com.wwwjf.base.KLog
 import java.io.ByteArrayOutputStream
 
 
@@ -28,6 +29,7 @@ class SurfaceViewActivity : AppCompatActivity(), SurfaceHolder.Callback {
         mCamera.setPreviewCallback(object : Camera.PreviewCallback {
             override fun onPreviewFrame(data: ByteArray?, camera: Camera?) {
                 val previewSize = camera?.parameters?.previewSize
+                KLog.e("previewSize:${previewSize?.width},${previewSize?.height}")
                 previewSize?.let {
                     val yuvImage = YuvImage(
                         data,
