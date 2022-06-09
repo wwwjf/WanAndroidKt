@@ -1,7 +1,11 @@
 plugins {
-    id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+}
+if (isLibrary.toBoolean()){
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin:  'com.android.application'
 }
 
 android {
@@ -10,7 +14,9 @@ android {
 
 
     defaultConfig {
-        applicationId "com.wwwjf.jetpackdemo"
+        if (!isLibrary.toBoolean()){
+            applicationId "com.wwwjf.jetpackdemo"
+        }
 
         minSdkVersion Integer.valueOf(min_sdk_version)
         targetSdkVersion Integer.valueOf(target_sdk_version)
@@ -18,6 +24,12 @@ android {
         versionName "$version_name"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+
     }
 
     buildTypes {
@@ -37,6 +49,18 @@ android {
         dataBinding = true
         viewBinding true
     }
+
+
+    sourceSets{
+        main{
+            if (isLibrary.toBoolean()){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
+    }
+
 }
 
 dependencies {

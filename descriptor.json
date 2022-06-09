@@ -19,7 +19,7 @@
     "version": {
         "name": "2.0.22",
         "desc": "Fix bugs",
-        "released": "2022-05-25",
+        "released": "2022-06-08",
         "vcs_tag": "v2.0.22",
         "gpgSign": false
     },

@@ -1,7 +1,12 @@
 plugins {
-    id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+}
+
+if (isLibrary.toBoolean()){
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin:  'com.android.application'
 }
 
 android {
@@ -9,7 +14,9 @@ android {
     buildToolsVersion "$build_tools_version"
 
     defaultConfig {
-        applicationId "com.wwwjf.glidedemo"
+        if (!isLibrary.toBoolean()){
+            applicationId "com.wwwjf.glidedemo"
+        }
 
         minSdkVersion Integer.valueOf(min_sdk_version)
         targetSdkVersion Integer.valueOf(target_sdk_version)
@@ -32,6 +39,17 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    sourceSets{
+        main{
+            if (isLibrary.toBoolean()){
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+            }
+        }
+    }
+
 }
 
 dependencies {
