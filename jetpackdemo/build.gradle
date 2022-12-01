@@ -61,6 +61,37 @@ android {
         }
     }
 
+    signingConfigs {
+//        签名文件信息
+        config {
+            keyAlias 'epay'
+            keyPassword 'EpayApp13579'
+            storeFile file('epay.jks')
+            storePassword 'EpayApp13579'
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            //发布地址 http://devgitlab.epay.br.com/plus/epay_app_release.git
+            def fileName
+            if (variant.buildType.name == "debug") {
+                fileName = "./jetpack_debug_v${defaultConfig.versionName}.apk"
+
+            } else {
+                fileName = "./jetpack_test_v${defaultConfig.versionName}_${getGitVersion()}.apk"
+
+            }
+            outputFileName = fileName
+
+        }
+    }
+
+}
+
+
+def getGitVersion(){
+    return 'git rev-parse --short HEAD'.execute().text.trim()
 }
 
 dependencies {

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="#ff00ff"
+    android:layout_margin="8dp"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content">
+
+        <com.wwwjf.jetpackdemo.recyclerview.CustomImageView
+            android:id="@+id/iv_item_adapter"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/ic_launcher"
+            android:adjustViewBounds="true"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/tv_item_adapter"
+            android:layout_width="wrap_content"
+            android:text="textview"
+            android:gravity="center"
+            android:background="#f0f0f0"
+            android:layout_alignBottom="@+id/iv_item_adapter"
+            android:layout_alignStart="@+id/iv_item_adapter"
+            android:layout_alignEnd="@id/iv_item_adapter"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

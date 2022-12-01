@@ -8,6 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAndroidKt">
+        <activity android:name=".recyclerview.RecyclerViewActivity"/>
         <activity android:name=".viewmodel.ViewModelDemoActivity"/>
         <activity android:name=".room.RoomDemoActivity" />
         <activity android:name=".livedata.LiveDataDemoActivity" />

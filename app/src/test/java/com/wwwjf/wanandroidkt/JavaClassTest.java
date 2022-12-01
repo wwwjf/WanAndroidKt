@@ -59,4 +59,9 @@ public class JavaClassTest {
         c.show(a1);
         c.show(a2);
     }
+
+    @Test
+    public void andTest(){
+        System.out.println(5&9);
+    }
 }
